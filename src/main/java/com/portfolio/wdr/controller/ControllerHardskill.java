@@ -1,10 +1,10 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
+package com.portfolio.wdr.controller;
 
-import com.portfolio.SpringBoot.DTO.DTOHardskill;
-import com.portfolio.SpringBoot.model.Hardskill;
-import com.portfolio.SpringBoot.service.IHardskillService;
+import com.portfolio.wdr.DTO.DTOHardskill;
+import com.portfolio.wdr.model.Hardskill;
+import com.portfolio.wdr.service.IHardskillService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

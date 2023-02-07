@@ -1,10 +1,10 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
+package com.portfolio.wdr.controller;
 
-import com.portfolio.SpringBoot.DTO.DTOInterest;
-import com.portfolio.SpringBoot.model.Interest;
-import com.portfolio.SpringBoot.service.IInterestService;
+import com.portfolio.wdr.DTO.DTOInterest;
+import com.portfolio.wdr.model.Interest;
+import com.portfolio.wdr.service.IInterestService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

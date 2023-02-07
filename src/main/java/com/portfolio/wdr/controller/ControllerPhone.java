@@ -1,12 +1,12 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
+package com.portfolio.wdr.controller;
 
 // Recibe las peticiones y delega el negocio (es el pivot de la aplicacion)
 
-import com.portfolio.SpringBoot.DTO.DTOPhone;
-import com.portfolio.SpringBoot.model.Phone;
-import com.portfolio.SpringBoot.service.IPhoneService;
+import com.portfolio.wdr.DTO.DTOPhone;
+import com.portfolio.wdr.model.Phone;
+import com.portfolio.wdr.service.IPhoneService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

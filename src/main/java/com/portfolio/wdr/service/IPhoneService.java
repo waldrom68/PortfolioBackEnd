@@ -1,9 +1,9 @@
 // Orden de creacion 2.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.DTO.DTOPhone;
-import com.portfolio.SpringBoot.model.Phone;
+import com.portfolio.wdr.DTO.DTOPhone;
+import com.portfolio.wdr.model.Phone;
 import java.util.List;
 
 public interface IPhoneService {

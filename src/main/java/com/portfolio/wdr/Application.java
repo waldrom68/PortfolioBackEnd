@@ -1,4 +1,4 @@
-package com.portfolio.SpringBoot;
+package com.portfolio.wdr;
 
 import java.util.Date;
 import org.springframework.boot.SpringApplication;

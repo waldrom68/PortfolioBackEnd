@@ -1,11 +1,11 @@
 // Orden de creacion 4.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.DTO.DTOSocialNetwork;
-import com.portfolio.SpringBoot.model.Person;
-import com.portfolio.SpringBoot.model.SocialNetwork;
-import com.portfolio.SpringBoot.repository.SocialNetworkRepository;
+import com.portfolio.wdr.DTO.DTOSocialNetwork;
+import com.portfolio.wdr.model.Person;
+import com.portfolio.wdr.model.SocialNetwork;
+import com.portfolio.wdr.repository.SocialNetworkRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

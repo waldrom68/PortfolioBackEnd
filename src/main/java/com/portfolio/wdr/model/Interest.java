@@ -1,6 +1,6 @@
 // Orden de creacion 1.-
 
-package com.portfolio.SpringBoot.model;
+package com.portfolio.wdr.model;
 
 // for reference off general usage view https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html
 

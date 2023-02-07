@@ -1,8 +1,8 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
-import com.portfolio.SpringBoot.model.Card;
-import com.portfolio.SpringBoot.service.ICardService;
+package com.portfolio.wdr.controller;
+import com.portfolio.wdr.model.Card;
+import com.portfolio.wdr.service.ICardService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

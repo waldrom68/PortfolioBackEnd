@@ -1,9 +1,9 @@
 // Orden de creacion 2.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.DTO.DTOProject;
-import com.portfolio.SpringBoot.model.Project;
+import com.portfolio.wdr.DTO.DTOProject;
+import com.portfolio.wdr.model.Project;
 import java.util.List;
 
 public interface IProjectService {

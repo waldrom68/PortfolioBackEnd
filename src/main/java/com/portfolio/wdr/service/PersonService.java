@@ -1,10 +1,10 @@
 // Orden de creacion 4.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.DTO.DTOPerson;
-import com.portfolio.SpringBoot.model.Person;
-import com.portfolio.SpringBoot.repository.PersonRepository;
+import com.portfolio.wdr.DTO.DTOPerson;
+import com.portfolio.wdr.model.Person;
+import com.portfolio.wdr.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

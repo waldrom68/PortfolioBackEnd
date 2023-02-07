@@ -1,9 +1,9 @@
 // Orden de creacion 0, Que es lo que voy a mostrar?
 
-package com.portfolio.SpringBoot.DTO;
+package com.portfolio.wdr.DTO;
 
-import com.portfolio.SpringBoot.model.Degree;
-import com.portfolio.SpringBoot.model.Organization;
+import com.portfolio.wdr.model.Degree;
+import com.portfolio.wdr.model.Organization;
 import java.io.Serializable;
 
 

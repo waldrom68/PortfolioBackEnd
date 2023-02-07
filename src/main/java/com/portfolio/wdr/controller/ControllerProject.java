@@ -1,10 +1,10 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
+package com.portfolio.wdr.controller;
 
-import com.portfolio.SpringBoot.DTO.DTOProject;
-import com.portfolio.SpringBoot.model.Project;
-import com.portfolio.SpringBoot.service.IProjectService;
+import com.portfolio.wdr.DTO.DTOProject;
+import com.portfolio.wdr.model.Project;
+import com.portfolio.wdr.service.IProjectService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

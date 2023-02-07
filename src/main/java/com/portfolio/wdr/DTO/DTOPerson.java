@@ -1,8 +1,8 @@
 // Orden de creacion 0, Que es lo que voy a mostrar?
 
-package com.portfolio.SpringBoot.DTO;
+package com.portfolio.wdr.DTO;
 
-import com.portfolio.SpringBoot.model.DisplayData;
+import com.portfolio.wdr.model.DisplayData;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;

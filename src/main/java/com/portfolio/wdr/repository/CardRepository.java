@@ -1,7 +1,7 @@
 
-package com.portfolio.SpringBoot.repository;
+package com.portfolio.wdr.repository;
 
-import com.portfolio.SpringBoot.model.Card;
+import com.portfolio.wdr.model.Card;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,9 +1,9 @@
 // Orden de creacion 2.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.DTO.DTOHardskill;
-import com.portfolio.SpringBoot.model.Hardskill;
+import com.portfolio.wdr.DTO.DTOHardskill;
+import com.portfolio.wdr.model.Hardskill;
 import java.util.List;
 
 

@@ -2,7 +2,7 @@
  * Para que se integre/comunique nuestra app frontend
  * Habilitacion del Cors
  */
-package com.portfolio.SpringBoot;
+package com.portfolio.wdr;
 
 import java.util.Date;
 import org.springframework.context.annotation.Configuration;

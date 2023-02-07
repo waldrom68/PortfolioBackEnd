@@ -1,6 +1,6 @@
 // Orden de creacion 1.-
 
-package com.portfolio.SpringBoot.model;
+package com.portfolio.wdr.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,12 +1,12 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
+package com.portfolio.wdr.controller;
 
-import com.portfolio.SpringBoot.DTO.DTOPerson;
-import com.portfolio.SpringBoot.model.DisplayData;
-import com.portfolio.SpringBoot.model.Person;
-import com.portfolio.SpringBoot.service.IDisplayDataService;
-import com.portfolio.SpringBoot.service.IPersonService;
+import com.portfolio.wdr.DTO.DTOPerson;
+import com.portfolio.wdr.model.DisplayData;
+import com.portfolio.wdr.model.Person;
+import com.portfolio.wdr.service.IDisplayDataService;
+import com.portfolio.wdr.service.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

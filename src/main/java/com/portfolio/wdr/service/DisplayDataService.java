@@ -1,9 +1,9 @@
 // Orden de creacion 4.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.model.DisplayData;
-import com.portfolio.SpringBoot.repository.DisplayDataRepository;
+import com.portfolio.wdr.model.DisplayData;
+import com.portfolio.wdr.repository.DisplayDataRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

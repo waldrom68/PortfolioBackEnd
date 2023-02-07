@@ -1,4 +1,4 @@
-package com.portfolio.SpringBoot;
+package com.portfolio.wdr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

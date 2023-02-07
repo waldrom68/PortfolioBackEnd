@@ -1,10 +1,10 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
+package com.portfolio.wdr.controller;
 
-import com.portfolio.SpringBoot.DTO.DTOSocialNetwork;
-import com.portfolio.SpringBoot.model.SocialNetwork;
-import com.portfolio.SpringBoot.service.ISocialnetworkService;
+import com.portfolio.wdr.DTO.DTOSocialNetwork;
+import com.portfolio.wdr.model.SocialNetwork;
+import com.portfolio.wdr.service.ISocialnetworkService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

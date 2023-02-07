@@ -1,8 +1,8 @@
 // Orden de creacion 2.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.model.DisplayData;
+import com.portfolio.wdr.model.DisplayData;
 import java.util.List;
 
 /**

@@ -1,8 +1,8 @@
 // Orden de creacion 2.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.model.ProjectMedia;
+import com.portfolio.wdr.model.ProjectMedia;
 import java.util.List;
 
 public interface IProjectMediaService {

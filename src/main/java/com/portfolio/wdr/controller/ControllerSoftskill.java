@@ -1,10 +1,10 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
+package com.portfolio.wdr.controller;
 
-import com.portfolio.SpringBoot.DTO.DTOSoftskill;
-import com.portfolio.SpringBoot.model.Softskill;
-import com.portfolio.SpringBoot.service.ISoftskillService;
+import com.portfolio.wdr.DTO.DTOSoftskill;
+import com.portfolio.wdr.model.Softskill;
+import com.portfolio.wdr.service.ISoftskillService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

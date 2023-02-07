@@ -1,9 +1,9 @@
 // Orden de creacion 4.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.model.ProjectMedia;
-import com.portfolio.SpringBoot.repository.ProjectMediaRepository;
+import com.portfolio.wdr.model.ProjectMedia;
+import com.portfolio.wdr.repository.ProjectMediaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

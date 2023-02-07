@@ -1,8 +1,8 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
-import com.portfolio.SpringBoot.model.Studie;
-import com.portfolio.SpringBoot.service.IStudieService;
+package com.portfolio.wdr.controller;
+import com.portfolio.wdr.model.Studie;
+import com.portfolio.wdr.service.IStudieService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

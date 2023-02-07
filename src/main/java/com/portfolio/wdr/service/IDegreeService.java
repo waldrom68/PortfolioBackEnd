@@ -1,8 +1,8 @@
 // Orden de creacion 2.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.model.Degree;
+import com.portfolio.wdr.model.Degree;
 import java.util.List;
 
 

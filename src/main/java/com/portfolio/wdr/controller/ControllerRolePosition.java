@@ -1,9 +1,9 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
+package com.portfolio.wdr.controller;
 
-import com.portfolio.SpringBoot.model.RolePosition;
-import com.portfolio.SpringBoot.service.IRolePositionService;
+import com.portfolio.wdr.model.RolePosition;
+import com.portfolio.wdr.service.IRolePositionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

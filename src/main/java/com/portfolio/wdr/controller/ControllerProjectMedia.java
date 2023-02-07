@@ -1,9 +1,9 @@
 // Orden de creacion 5.-
 
-package com.portfolio.SpringBoot.controller;
+package com.portfolio.wdr.controller;
 
-import com.portfolio.SpringBoot.model.ProjectMedia;
-import com.portfolio.SpringBoot.service.IProjectMediaService;
+import com.portfolio.wdr.model.ProjectMedia;
+import com.portfolio.wdr.service.IProjectMediaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

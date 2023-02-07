@@ -1,11 +1,11 @@
 // Orden de creacion 4.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.DTO.DTOInterest;
-import com.portfolio.SpringBoot.model.Interest;
-import com.portfolio.SpringBoot.model.Person;
-import com.portfolio.SpringBoot.repository.InterestRepository;
+import com.portfolio.wdr.DTO.DTOInterest;
+import com.portfolio.wdr.model.Interest;
+import com.portfolio.wdr.model.Person;
+import com.portfolio.wdr.repository.InterestRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

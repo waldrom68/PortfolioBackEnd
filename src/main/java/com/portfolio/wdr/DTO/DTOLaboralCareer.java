@@ -1,9 +1,9 @@
 // Orden de creacion 0, Que es lo que voy a mostrar?
 
-package com.portfolio.SpringBoot.DTO;
+package com.portfolio.wdr.DTO;
 
-import com.portfolio.SpringBoot.model.Organization;
-import com.portfolio.SpringBoot.model.RolePosition;
+import com.portfolio.wdr.model.Organization;
+import com.portfolio.wdr.model.RolePosition;
 import java.io.Serializable;
 
 import lombok.Getter;

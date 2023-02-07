@@ -1,13 +1,13 @@
 // Orden de creacion 4.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.DTO.DTOLaboralCareer;
-import com.portfolio.SpringBoot.model.LaboralCareer;
-import com.portfolio.SpringBoot.model.Organization;
-import com.portfolio.SpringBoot.model.Person;
-import com.portfolio.SpringBoot.model.RolePosition;
-import com.portfolio.SpringBoot.repository.LaboralCareerRepository;
+import com.portfolio.wdr.DTO.DTOLaboralCareer;
+import com.portfolio.wdr.model.LaboralCareer;
+import com.portfolio.wdr.model.Organization;
+import com.portfolio.wdr.model.Person;
+import com.portfolio.wdr.model.RolePosition;
+import com.portfolio.wdr.repository.LaboralCareerRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

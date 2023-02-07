@@ -1,9 +1,9 @@
 // Orden de creacion 2.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.DTO.DTOInterest;
-import com.portfolio.SpringBoot.model.Interest;
+import com.portfolio.wdr.DTO.DTOInterest;
+import com.portfolio.wdr.model.Interest;
 import java.util.List;
 
 

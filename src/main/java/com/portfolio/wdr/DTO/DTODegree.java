@@ -1,6 +1,6 @@
 // Orden de creacion 0, Que es lo que voy a mostrar?
 
-package com.portfolio.SpringBoot.DTO;
+package com.portfolio.wdr.DTO;
 
 import java.io.Serializable;
 

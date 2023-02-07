@@ -1,10 +1,10 @@
 // Orden de creacion 2.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
 
-import com.portfolio.SpringBoot.DTO.DTOSoftskill;
-import com.portfolio.SpringBoot.model.Softskill;
+import com.portfolio.wdr.DTO.DTOSoftskill;
+import com.portfolio.wdr.model.Softskill;
 import java.util.List;
 
 public interface ISoftskillService {

@@ -1,9 +1,9 @@
 // Orden de creacion 4.-
 
-package com.portfolio.SpringBoot.service;
+package com.portfolio.wdr.service;
 
-import com.portfolio.SpringBoot.model.Card;
-import com.portfolio.SpringBoot.repository.CardRepository;
+import com.portfolio.wdr.model.Card;
+import com.portfolio.wdr.repository.CardRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
