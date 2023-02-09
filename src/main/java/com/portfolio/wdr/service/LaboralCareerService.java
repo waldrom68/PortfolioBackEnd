@@ -57,7 +57,7 @@ public class LaboralCareerService implements ILaboralCareerService {
     }
 
     @Override
-    public List<LaboralCareer> verByPersonId(Long id) {
+    public List<DTOLaboralCareer> verByPersonId(Long id) {
         List<LaboralCareer> listcareer = laboralRepo.findByPersonId(id);
         List listatemp = new ArrayList();
         

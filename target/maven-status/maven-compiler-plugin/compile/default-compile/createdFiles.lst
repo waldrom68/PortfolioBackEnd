@@ -1,3 +1,4 @@
+com\portfolio\wdr\DTO\DTOfullPerson.class
 com\portfolio\wdr\service\SoftskillService.class
 com\portfolio\wdr\service\IDegreeService.class
 com\portfolio\wdr\repository\HardskillRepository.class
@@ -20,6 +21,7 @@ com\portfolio\wdr\repository\OrganizationRepository.class
 com\portfolio\wdr\repository\ProjectMediaRepository.class
 com\portfolio\wdr\service\OrganizationService.class
 com\portfolio\wdr\service\CardService.class
+com\portfolio\wdr\service\fullPersonService.class
 com\portfolio\wdr\model\Interest.class
 com\portfolio\wdr\model\LaboralCareer.class
 com\portfolio\wdr\service\PhoneService.class
@@ -47,6 +49,7 @@ com\portfolio\wdr\model\SocialNetwork.class
 com\portfolio\wdr\service\ProjectService.class
 com\portfolio\wdr\controller\ControllerPhone.class
 com\portfolio\wdr\repository\CardRepository.class
+com\portfolio\wdr\controller\ControllerFullPerson.class
 com\portfolio\wdr\DTO\DTOInterest.class
 com\portfolio\wdr\repository\DisplayDataRepository.class
 com\portfolio\wdr\service\SocialNetworkService.class
@@ -71,6 +74,7 @@ com\portfolio\wdr\controller\ControllerProjectMedia.class
 com\portfolio\wdr\Application.class
 com\portfolio\wdr\model\Studie.class
 com\portfolio\wdr\controller\ControllerCard.class
+com\portfolio\wdr\repository\FullPersonRepository.class
 com\portfolio\wdr\DTO\DTOOrganization.class
 com\portfolio\wdr\service\InterestService.class
 com\portfolio\wdr\repository\InterestRepository.class
@@ -83,6 +87,7 @@ com\portfolio\wdr\repository\PhoneRepository.class
 com\portfolio\wdr\service\ProjectMediaService.class
 com\portfolio\wdr\DTO\DTOPhone.class
 com\portfolio\wdr\DTO\DTORolePosition.class
+com\portfolio\wdr\service\IFullPersonService.class
 com\portfolio\wdr\service\IOrganizationService.class
 com\portfolio\wdr\controller\ControllerSocialNetwork.class
 com\portfolio\wdr\service\DisplayDataService.class

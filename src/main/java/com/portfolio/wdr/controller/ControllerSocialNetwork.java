@@ -24,9 +24,9 @@ public class ControllerSocialNetwork {
     private ISocialnetworkService socialServ;
     
     @PostMapping("/edit/social")
-    public SocialNetwork crearSocial(@RequestBody SocialNetwork social) {
+    public void crearSocial(@RequestBody SocialNetwork social) {
     
-        return socialServ.crearSocial(social);
+        socialServ.crearSocial(social);
     
     }
     

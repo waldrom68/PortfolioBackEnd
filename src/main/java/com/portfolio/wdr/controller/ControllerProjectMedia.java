@@ -24,9 +24,9 @@ public class ControllerProjectMedia {
     
     
     @PostMapping ("/new/projectmedia")
-    public ProjectMedia crearProjectMedia (@RequestBody ProjectMedia pers) {
+    public void crearProjectMedia (@RequestBody ProjectMedia pers) {
     
-        return persoServ.crearProjectMedia(pers);
+        persoServ.crearProjectMedia(pers);
     
     }
     

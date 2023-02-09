@@ -24,8 +24,8 @@ public class ControllerDegree {
     
         
     @PostMapping ("/edit/degree")
-    public Degree crearDegree (@RequestBody Degree degree) {
-        return degreeRepo.crearDegree(degree);
+    public void crearDegree (@RequestBody Degree degree) {
+        degreeRepo.crearDegree(degree);
     
     }
     

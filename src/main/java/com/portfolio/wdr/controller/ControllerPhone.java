@@ -24,8 +24,9 @@ public class ControllerPhone {
     
        
     @PostMapping ("/edit/phone")
-    public Phone crearPhone (@RequestBody Phone phone) {
-        return phoneServ.crearPhone(phone);
+    public void crearPhone (@RequestBody Phone phone) {
+        
+        phoneServ.crearPhone(phone);
 
     }
     

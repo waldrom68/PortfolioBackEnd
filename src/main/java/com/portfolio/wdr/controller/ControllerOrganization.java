@@ -25,9 +25,9 @@ public class ControllerOrganization {
     
     
     @PostMapping ("/edit/organization")
-    public Organization crearorganization (@RequestBody Organization orga) {
+    public void crearorganization (@RequestBody Organization orga) {
     
-        return orgaServ.crearOrganizacion(orga);
+        orgaServ.crearOrganizacion(orga);
     
     }
     

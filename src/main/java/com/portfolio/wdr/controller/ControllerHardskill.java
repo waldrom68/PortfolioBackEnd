@@ -23,9 +23,9 @@ public class ControllerHardskill {
     private IHardskillService hardServ;
     
     @PostMapping("/edit/hardskill")  // edit and create
-    public Hardskill crearHard(@RequestBody Hardskill hard) {
+    public void crearHard(@RequestBody Hardskill hard) {
     
-        return hardServ.crearHard(hard);
+        hardServ.crearHard(hard);
 
         
     }

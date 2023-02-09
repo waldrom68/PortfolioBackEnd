@@ -23,9 +23,9 @@ public class ControllerSoftskill {
     private ISoftskillService softServ;
     
     @PostMapping("/edit/softskill")  // edit and create
-    public Softskill crearSoft(@RequestBody Softskill soft) {
+    public void crearSoft(@RequestBody Softskill soft) {
 
-        return softServ.crearSoft(soft);
+        softServ.crearSoft(soft);
     
     }
     

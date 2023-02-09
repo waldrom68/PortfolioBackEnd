@@ -54,13 +54,10 @@ public class StudieService implements IStudieService {
         return studieRepo.findById(id).orElse(null);
     }
     
-    @Override
-    public List<Studie> verStudie() {
-        return studieRepo.findAll(Sort.by("orderdeploy").ascending());
-    }
+
 
     @Override
-    public List<Studie> verByPersonId(Long id) {
+    public List<DTOStudie> verByPersonId(Long id) {
         List<Studie> liststudie = studieRepo.findByPersonId(id);
         List listatemp = new ArrayList();
         
@@ -97,5 +94,6 @@ public class StudieService implements IStudieService {
         return listatemp;
         
     }
+
     
 }

@@ -24,9 +24,9 @@ public class ControllerProject {
     
     
     @PostMapping ("/edit/project")  // edit and create
-    public Project crearProject (@RequestBody Project proj) {
+    public void crearProject (@RequestBody Project proj) {
     
-        return projServ.crearProject(proj);
+        projServ.crearProject(proj);
 
     }
     

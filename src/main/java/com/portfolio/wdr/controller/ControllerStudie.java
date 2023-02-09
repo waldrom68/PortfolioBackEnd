@@ -1,6 +1,7 @@
 // Orden de creacion 5.-
 
 package com.portfolio.wdr.controller;
+import com.portfolio.wdr.DTO.DTOStudie;
 import com.portfolio.wdr.model.Studie;
 import com.portfolio.wdr.service.IStudieService;
 import java.util.List;
@@ -22,8 +23,8 @@ public class ControllerStudie {
     
         
     @PostMapping ("/edit/studie")
-    public Studie crearStudie (@RequestBody Studie studie) {
-        return studieServ.crearStudie(studie);
+    public void crearStudie (@RequestBody Studie studie) {
+        studieServ.crearStudie(studie);
 
     
     }
@@ -45,7 +46,7 @@ public class ControllerStudie {
     
               
     @GetMapping ("/list/studie/{id}")
-    public List<Studie> verByPersonId(@PathVariable Long id) {
+    public List<DTOStudie> verByPersonId(@PathVariable Long id) {
     
         return studieServ.verByPersonId(id);
     

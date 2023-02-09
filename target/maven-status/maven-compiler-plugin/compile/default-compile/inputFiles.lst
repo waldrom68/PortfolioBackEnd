@@ -22,6 +22,7 @@ C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\ICardService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\RolePosition.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerDegree.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Project.java
+C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\fullPersonService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\ProjectMediaService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\IDisplayDataService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerProject.java
@@ -29,6 +30,7 @@ C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\IDegreeService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Softskill.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\DegreeRepository.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Interest.java
+C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerFullPerson.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\LaboralCareer.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerProjectMedia.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerCard.java
@@ -47,6 +49,7 @@ C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\RolePositionRepos
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Card.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Phone.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\ProjectRepository.java
+C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\IFullPersonService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\HardskillRepository.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOStudie.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\SocialNetworkRepository.java
@@ -65,6 +68,7 @@ C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\LaboralCareerService
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerSocialNetwork.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\IRolePositionService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\StudieRepository.java
+C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOfullPerson.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\DisplayData.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\InterestService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Degree.java
@@ -78,6 +82,7 @@ C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOProject.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\CardRepository.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\WebConfig.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerStudie.java
+C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\FullPersonRepository.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\IOrganizationService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Organization.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOInterest.java

@@ -2,6 +2,7 @@
 
 package com.portfolio.wdr.controller;
 
+import com.portfolio.wdr.DTO.DTOLaboralCareer;
 import com.portfolio.wdr.model.LaboralCareer;
 import com.portfolio.wdr.service.ILaboralCareerService;
 import java.util.List;
@@ -23,8 +24,9 @@ public class ControllerLaboralCareer {
     
     
     @PostMapping ("/edit/laboralcareer")
-    public LaboralCareer crearLaboralCareer (@RequestBody LaboralCareer pers) {
-        return laboralServ.crearLaboralCareer(pers);
+    public void crearLaboralCareer (@RequestBody LaboralCareer pers) {
+        
+        laboralServ.crearLaboralCareer(pers);
     
     }
     
@@ -43,7 +45,7 @@ public class ControllerLaboralCareer {
 //    }
     
     @GetMapping ("/list/laboralcareer/{id}")
-    public List<LaboralCareer> verByPersonId(@PathVariable Long id) {
+    public List<DTOLaboralCareer> verByPersonId(@PathVariable Long id) {
     
         return laboralServ.verByPersonId(id);
     

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonService implements IPersonService {
 
-    // Para la conecion con el JPA : PersonRepository hara de intermediario entre
+    // Para la conexion con el JPA : PersonRepository hara de intermediario entre
     // la DB y nuestros metodos, para ello deberemos inyectar nuestra dependencia
     @Autowired
     public PersonRepository persoRepo;
