@@ -7,6 +7,7 @@ import com.portfolio.wdr.model.Person;
 import com.portfolio.wdr.model.Softskill;
 import com.portfolio.wdr.repository.SoftskillRepository;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -59,6 +60,10 @@ public class SoftskillService implements ISoftskillService {
     public List<DTOSoftskill> verByPersonId(Long id) {
 //        Person pers = persServ.buscarPersona(id);
         List<Softskill> listsoft = softRepo.findByPersonId(id);
+        
+        // Ordeno la lista obtenida
+        listsoft.sort(Comparator.comparing(softskill -> softskill.getOrderdeploy()));
+         
         List listatemp = new ArrayList();
         
         for (Softskill elemento :listsoft) {

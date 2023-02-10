@@ -7,6 +7,7 @@ import com.portfolio.wdr.model.Person;
 import com.portfolio.wdr.model.Project;
 import com.portfolio.wdr.repository.ProjectRepository;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -56,6 +57,10 @@ public class ProjectService implements IProjectService {
     public List<DTOProject> verByPersonId(Long id) {
       //        Person pers = persServ.buscarPersona(id);
         List<Project> listproj = projRepo.findByPersonId(id);
+        
+        // Ordeno la lista obtenida
+        listproj.sort(Comparator.comparing(Project::getOrderdeploy));
+         
         List listatemp = new ArrayList();
         
         for (Project elemento :listproj) {

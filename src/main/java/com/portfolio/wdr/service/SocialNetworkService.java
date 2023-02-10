@@ -7,6 +7,7 @@ import com.portfolio.wdr.model.Person;
 import com.portfolio.wdr.model.SocialNetwork;
 import com.portfolio.wdr.repository.SocialNetworkRepository;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -52,6 +53,10 @@ public class SocialNetworkService implements ISocialnetworkService {
     @Override
     public List<DTOSocialNetwork> verByPersonId(Long id) {
         List<SocialNetwork> listsocial = socialRepo.findByPersonId(id);
+        
+        // Ordeno la lista obtenida
+        listsocial.sort(Comparator.comparing(SocialNetwork::getOrderdeploy));
+         
         List listatemp = new ArrayList();
         
         for (SocialNetwork elemento :listsocial) {

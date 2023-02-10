@@ -7,6 +7,7 @@ import com.portfolio.wdr.model.Hardskill;
 import com.portfolio.wdr.model.Person;
 import com.portfolio.wdr.repository.HardskillRepository;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -52,6 +53,10 @@ public class HardskillService implements IHardskillService {
     public List<DTOHardskill> verByPersonId(Long id) {
         //        Person pers = persServ.buscarPersona(id);
         List<Hardskill> lista = hardRepo.findByPersonId(id);
+        
+        // Ordeno la lista obtenida
+        lista.sort(Comparator.comparing(Hardskill::getOrderdeploy));
+        
         List listatemp = new ArrayList();
         
         for (Hardskill elemento :lista) {

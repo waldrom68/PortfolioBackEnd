@@ -22,7 +22,7 @@ public class DegreeService implements IDegreeService {
     
     @Override
     public Degree crearDegree(Degree deg) {
-        System.out.println("Estoy aqui " + deg.getPerson());
+        System.out.println("Estoy aqui ahora mismo" + deg.getPerson());
         
         Long tmp_id = deg.getPerson().getId();
         Person pers = persServ.buscarPersona(tmp_id);

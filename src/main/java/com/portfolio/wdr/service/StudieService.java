@@ -9,6 +9,7 @@ import com.portfolio.wdr.model.Person;
 import com.portfolio.wdr.model.Studie;
 import com.portfolio.wdr.repository.StudieRepository;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -59,6 +60,10 @@ public class StudieService implements IStudieService {
     @Override
     public List<DTOStudie> verByPersonId(Long id) {
         List<Studie> liststudie = studieRepo.findByPersonId(id);
+        
+        // Ordeno la lista obtenida
+        liststudie.sort(Comparator.comparing(studie -> studie.getOrderdeploy()));
+        
         List listatemp = new ArrayList();
         
         for (Studie elemento :liststudie) {

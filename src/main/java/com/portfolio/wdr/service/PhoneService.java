@@ -7,6 +7,7 @@ import com.portfolio.wdr.model.Person;
 import com.portfolio.wdr.repository.PhoneRepository;
 import com.portfolio.wdr.model.Phone;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -53,6 +54,10 @@ public class PhoneService implements IPhoneService {
     public List<DTOPhone> verByPersonId(Long id) {
         //        Person pers = persServ.buscarPersona(id);
         List<Phone> listsoft = phoneRepo.findByPersonId(id);
+        
+        // Ordeno la lista obtenida
+        listsoft.sort(Comparator.comparing(Phone::getOrderdeploy));
+         
         List listatemp = new ArrayList();
         
         for (Phone elemento :listsoft) {

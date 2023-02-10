@@ -7,6 +7,7 @@ import com.portfolio.wdr.model.Interest;
 import com.portfolio.wdr.model.Person;
 import com.portfolio.wdr.repository.InterestRepository;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -52,6 +53,10 @@ public class InterestService implements IInterestService {
     public List<DTOInterest> verByPersonId(Long id) {
         //        Person pers = persServ.buscarPersona(id);
         List<Interest> listinter = interestRepo.findByPersonId(id);
+        
+        // Ordeno la lista obtenida
+        listinter.sort(Comparator.comparing(Interest::getOrderdeploy));
+             
         List listatemp = new ArrayList();
         
         for (Interest elemento :listinter) {
