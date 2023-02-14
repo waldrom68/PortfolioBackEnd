@@ -3,7 +3,7 @@
  */
 package com.portfolio.wdr.Security;
 
-import com.portfolio.wdr.Security.Service.UserDetailsImpl;
+//import com.portfolio.wdr.Security.Service.UserDetailsImpl;
 import com.portfolio.wdr.Security.jwt.JwtEntryPoint;
 import com.portfolio.wdr.Security.jwt.JwtTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +27,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true) // las rutas que indiquemos estarán bloqueadas a los no logueados
 public class MainSecurity {
 
-    @Autowired
-    UserDetailsImpl userDetailsServiceImpl;
+//    @Autowired
+//    UserDetailsImpl userDetailsServiceImpl;
     @Autowired
     JwtEntryPoint jwtEntryPoint;
 
