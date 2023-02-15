@@ -1,5 +1,4 @@
 // Orden de creacion 4.-
-
 package com.portfolio.wdr.service;
 
 import com.portfolio.wdr.DTO.DTOPerson;
@@ -15,14 +14,12 @@ public class PersonService implements IPersonService {
     // la DB y nuestros metodos, para ello deberemos inyectar nuestra dependencia
     @Autowired
     public PersonRepository persoRepo;
-    
-    
+
 //        Codigo que tengo que sacar del controller y debo colocar aqui por ser una regla de negocio
 //        @Autowired
 //        private IDisplayDataService displayServ;
 //
 //        public void crearPersona (@RequestBody Person pers) {
-
 //        Person persona = persoServ.buscarPersona(pers.getId());
 //        if ( persona == null ) {  //  No existia, creando una persona
 //            Creo la instancia DisplayData que tienen por default todas las personas
@@ -39,10 +36,6 @@ public class PersonService implements IPersonService {
 //        }
 //        persoServ.crearPersona(pers);
 //    }
-    
-     
-    
-
     @Override
     public Person crearPersona(Person per) {
         return persoRepo.save(per);
@@ -62,31 +55,30 @@ public class PersonService implements IPersonService {
 //    public void editPersona(Person per) {
 //        persoRepo.save(per);
 //    }
-         
     @Override
     public DTOPerson verPersona(Long id) {
-      //        Person pers = persServ.buscarPersona(id);
-        Person tempper = persoRepo.findById(id).orElse(null);
-
-
+        //        Person pers = persServ.buscarPersona(id);
+        Person tempper = buscarPersona(id);
         DTOPerson tempDTO = new DTOPerson();
 
-        tempDTO.setId(tempper.getId());
-        tempDTO.setName(tempper.getName());
-        tempDTO.setLastName(tempper.getLastName());
-        tempDTO.setPathFoto(tempper.getPathFoto());
-        tempDTO.setLocation(tempper.getLocation());
-        tempDTO.setProfession(tempper.getProfession());
-        tempDTO.setProfile(tempper.getProfile());
-        tempDTO.setObjetive(tempper.getObjetive());
-        String temp = tempper.getSince().toString();
+        if (tempper != null) {
 
-        tempDTO.setSince(temp.substring(0, 10));
-        tempDTO.setEmail(tempper.getEmail());
-        tempDTO.setUsername(tempper.getUsername());
-        tempDTO.setDisplaydata(tempper.getDisplaydata());
+            tempDTO.setId(tempper.getId());
+            tempDTO.setName(tempper.getName());
+            tempDTO.setLastName(tempper.getLastName());
+            tempDTO.setPathFoto(tempper.getPathFoto());
+            tempDTO.setLocation(tempper.getLocation());
+            tempDTO.setProfession(tempper.getProfession());
+            tempDTO.setProfile(tempper.getProfile());
+            tempDTO.setObjetive(tempper.getObjetive());
+            String temp = tempper.getSince().toString();
 
-        
+            tempDTO.setSince(temp.substring(0, 10));
+            tempDTO.setEmail(tempper.getEmail());
+            tempDTO.setUsername(tempper.getUsername());
+            tempDTO.setDisplaydata(tempper.getDisplaydata());
+
+        }
         return tempDTO;
 
     }

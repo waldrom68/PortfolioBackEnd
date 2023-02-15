@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.portfolio</groupId>
     <artifactId>wdr</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1-BETA</version>
     <name>wdr</name>
     <description>Project for Portfolio backend - Spring Boot</description>
     <properties>

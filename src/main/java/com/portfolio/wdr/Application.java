@@ -11,7 +11,9 @@ public class Application {
                 System.out.println("###### Application.java class ######");
                 Date date = new Date();
                 System.out.println(date);
+                
 		SpringApplication.run(Application.class, args);
+                
 	}
 
 }

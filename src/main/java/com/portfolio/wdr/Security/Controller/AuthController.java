@@ -24,29 +24,36 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/auth")
+//@RequestMapping("/auth")
 @CrossOrigin
 // @CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
-    @Autowired
-    AuthenticationManager authenticationManager;
-    @Autowired
-    UsuarioService usuarioService;
-    @Autowired
-    RolService rolService;
-    @Autowired
-    JwtProvider jwtProvider;
+    @Autowired PasswordEncoder passwordEncoder;
+    @Autowired AuthenticationManager authenticationManager;
+    @Autowired UsuarioService usuarioService;
+    @Autowired RolService rolService;
+    @Autowired JwtProvider jwtProvider;
 
-    @PostMapping("/nuevo")
+    
+    @RequestMapping("/")
+    public String index() {
+        return "<center><h1>El servicio API está funcionando,<br>pero su acceso tiene restricciones</h1></center>";
+    }
+    
+    @GetMapping("/**")
+    public String indexLogin() {
+        return "<center><h1>El servicio API está funcionando,<br>pero su acceso tiene restricciones</h1></center>";
+    }
+    
+    @PostMapping("/auth/new")
     public ResponseEntity<?> nuevo(@Validated @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Campos mal puestos o email invalido"), HttpStatus.BAD_REQUEST);
@@ -78,7 +85,7 @@ public class AuthController {
         
     }
     
-    @PostMapping("/login")
+    @PostMapping("/auth/login")
     public ResponseEntity<JwtDTO> login(@Validated @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         
         if (bindingResult.hasErrors())
@@ -101,4 +108,3 @@ public class AuthController {
     }
 }
 
-// Nicolás Olima, dependencia
