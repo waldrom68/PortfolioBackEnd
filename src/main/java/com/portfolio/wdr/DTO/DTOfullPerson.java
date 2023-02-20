@@ -3,12 +3,6 @@
 package com.portfolio.wdr.DTO;
 
 import com.portfolio.wdr.model.DisplayData;
-import com.portfolio.wdr.model.LaboralCareer;
-
-
-import com.portfolio.wdr.model.Phone;
-import com.portfolio.wdr.model.SocialNetwork;
-import com.portfolio.wdr.model.Studie;
 
 import java.io.Serializable;
 import java.util.List;
@@ -28,7 +22,7 @@ public class DTOfullPerson implements Serializable {
     private String objetive;
     private String since;
     private String email;
-    private String username;
+//    private String username;
     private DisplayData displaydata;
     private List <DTOHardskill> hardskill;
     private List <DTOSoftskill> softskill;

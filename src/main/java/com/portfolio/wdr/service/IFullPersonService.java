@@ -6,6 +6,7 @@ import com.portfolio.wdr.DTO.DTOfullPerson;
 
 public interface IFullPersonService {
     
+    public boolean existsPersonById(Long id);
     public DTOfullPerson verPersona(Long id);
     
 }

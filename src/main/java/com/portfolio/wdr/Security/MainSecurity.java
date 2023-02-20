@@ -60,6 +60,7 @@ public class MainSecurity {
                 .authorizeHttpRequests()
                 .requestMatchers("/**").permitAll()
                 .anyRequest().authenticated();
+//                .requestMatchers("/**").permitAll()
 
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 

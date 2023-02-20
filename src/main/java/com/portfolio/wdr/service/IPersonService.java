@@ -9,6 +9,7 @@ import com.portfolio.wdr.model.Person;
 
 public interface IPersonService {
     
+    public boolean existsPersonById(Long id);
     public void borrarPersona(Long id);
     public Person buscarPersona(Long id);
     public Person crearPersona(Person per);

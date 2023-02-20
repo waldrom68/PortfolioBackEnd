@@ -59,10 +59,10 @@ public class Person {
     private Date since;
     @Column(nullable=false, length=45, unique = true)
     private String email;
-    @Column(nullable=false, length=45, unique = true)
-    private String username;
-    @Column(nullable=false, length=45)
-    private String password;
+//    @Column(nullable=false, length=45, unique = true)
+//    private String username;
+//    @Column(nullable=false, length=45)
+//    private String password;
     
 //    Relaciones UniDireccionales entre entidades
 //    @<tipo relacion>To<tipo relacion>
@@ -108,7 +108,7 @@ public class Person {
         this.id = id;
     }
 
-    public Person(String name, String lastName, String pathFoto, String location, String profession, String profile, String objetive, Date since, String email, String username, String password) {
+    public Person(String name, String lastName, String pathFoto, String location, String profession, String profile, String objetive, Date since, String email) {
         this.name = name;
         this.lastName = lastName;
         this.pathFoto = pathFoto;
@@ -118,8 +118,8 @@ public class Person {
         this.objetive = objetive;
         this.since = since;
         this.email = email;
-        this.username = username;
-        this.password = password;
+//        this.username = username;
+//        this.password = password;
 
     }
 

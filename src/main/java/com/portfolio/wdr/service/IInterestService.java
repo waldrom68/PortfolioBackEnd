@@ -10,6 +10,7 @@ import java.util.List;
 public interface IInterestService {
     
    public Interest crearInteres(Interest inter);
+
    public void borrarInteres(Long id);
    public Interest buscarInteres(Long id);
    

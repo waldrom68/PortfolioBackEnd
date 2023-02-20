@@ -57,29 +57,31 @@ public class PersonService implements IPersonService {
 //    }
     @Override
     public DTOPerson verPersona(Long id) {
-        //        Person pers = persServ.buscarPersona(id);
+
         Person tempper = buscarPersona(id);
         DTOPerson tempDTO = new DTOPerson();
 
-        if (tempper != null) {
+        tempDTO.setId(tempper.getId());
+        tempDTO.setName(tempper.getName());
+        tempDTO.setLastName(tempper.getLastName());
+        tempDTO.setPathFoto(tempper.getPathFoto());
+        tempDTO.setLocation(tempper.getLocation());
+        tempDTO.setProfession(tempper.getProfession());
+        tempDTO.setProfile(tempper.getProfile());
+        tempDTO.setObjetive(tempper.getObjetive());
+        String temp = tempper.getSince().toString();
 
-            tempDTO.setId(tempper.getId());
-            tempDTO.setName(tempper.getName());
-            tempDTO.setLastName(tempper.getLastName());
-            tempDTO.setPathFoto(tempper.getPathFoto());
-            tempDTO.setLocation(tempper.getLocation());
-            tempDTO.setProfession(tempper.getProfession());
-            tempDTO.setProfile(tempper.getProfile());
-            tempDTO.setObjetive(tempper.getObjetive());
-            String temp = tempper.getSince().toString();
+        tempDTO.setSince(temp.substring(0, 10));
+        tempDTO.setEmail(tempper.getEmail());
+//        tempDTO.setUsername(tempper.getUsername());
+        tempDTO.setDisplaydata(tempper.getDisplaydata());
 
-            tempDTO.setSince(temp.substring(0, 10));
-            tempDTO.setEmail(tempper.getEmail());
-            tempDTO.setUsername(tempper.getUsername());
-            tempDTO.setDisplaydata(tempper.getDisplaydata());
-
-        }
         return tempDTO;
 
+    }
+
+    @Override
+    public boolean existsPersonById(Long id) {
+        return persoRepo.existsById(id);
     }
 }
