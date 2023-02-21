@@ -13,6 +13,7 @@ public interface IInterestService {
 
    public void borrarInteres(Long id);
    public Interest buscarInteres(Long id);
+   public Interest findByName(String nombre);
    
    public List<Interest> verIntereses();
    public List<DTOInterest> verByPersonId(Long id);

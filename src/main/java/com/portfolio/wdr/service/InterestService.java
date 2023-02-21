@@ -73,6 +73,11 @@ public class InterestService implements IInterestService {
         return listatemp;
         
     }
+
+    @Override
+    public Interest findByName(String nombre) {
+        return interestRepo.findByname(nombre);
+    }
     
     
     

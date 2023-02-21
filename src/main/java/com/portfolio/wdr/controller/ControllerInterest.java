@@ -5,6 +5,7 @@ import com.portfolio.wdr.DTO.DTOInterest;
 import com.portfolio.wdr.Security.Controller.Mensaje;
 import com.portfolio.wdr.model.Interest;
 import com.portfolio.wdr.service.IInterestService;
+import io.micrometer.common.util.StringUtils;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,9 +29,23 @@ public class ControllerInterest {
     private IInterestService interServ;
 
     @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/ver")
+    public Interest buscarPorNombre(@RequestBody Interest inter) {
+        return interServ.findByName(inter.getName());
+    }
+    
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit")
     public ResponseEntity<?> crearInteres(@RequestBody Interest inter) {
-
+        if (StringUtils.isBlank(inter.getName())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (interServ.findByName(inter.getName()) != null) {
+           
+            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        
         try {
             interServ.crearInteres(inter);
             return new ResponseEntity(new Mensaje("Informacion guardada correctamente"), HttpStatus.OK);
@@ -43,13 +58,22 @@ public class ControllerInterest {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/new")
-    public DTOInterest nuevoInteres(@RequestBody Interest inter) {
+    public ResponseEntity<?> nuevoInteres(@RequestBody Interest inter) {
+        if (StringUtils.isBlank(inter.getName())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (interServ.findByName(inter.getName()) != null) {
+           
+            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        
+        
         DTOInterest temp = new DTOInterest();
         Interest interes = interServ.crearInteres(inter);
         temp.setId(interes.getId());
         temp.setName(interes.getName());
         temp.setOrderdeploy(interes.getOrderdeploy());
-        return temp;
+        return new ResponseEntity(temp, HttpStatus.CREATED);
 
     }
 
