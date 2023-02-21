@@ -7,6 +7,8 @@ import com.portfolio.wdr.model.Interest;
 import com.portfolio.wdr.service.IInterestService;
 import io.micrometer.common.util.StringUtils;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,22 +32,25 @@ public class ControllerInterest {
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/ver")
-    public Interest buscarPorNombre(@RequestBody Interest inter) {
-        return interServ.findByName(inter.getName());
+    public ResponseEntity<?> buscarPorNombre(@RequestBody Interest inter) {
+        Optional<Interest> temp = interServ.findBynameAndPersonId(inter.getName(), inter.getPerson().getId(), inter);
+        if (temp != null && Objects.equals(temp.get().getId(), inter.getId())) {
+            return new ResponseEntity(temp, HttpStatus.OK);
+        }
+        return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
     }
-    
-    
+
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit")
     public ResponseEntity<?> crearInteres(@RequestBody Interest inter) {
         if (StringUtils.isBlank(inter.getName())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (interServ.findByName(inter.getName()) != null) {
-           
+        if (interServ.findBynameAndPersonId(inter.getName(), inter.getPerson().getId(), inter) == null) {
+
             return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
-        
+
         try {
             interServ.crearInteres(inter);
             return new ResponseEntity(new Mensaje("Informacion guardada correctamente"), HttpStatus.OK);
@@ -62,12 +67,11 @@ public class ControllerInterest {
         if (StringUtils.isBlank(inter.getName())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (interServ.findByName(inter.getName()) != null) {
-           
+        if (interServ.findBynameAndPersonId(inter.getName(), inter.getPerson().getId(), inter) == null) {
+
             return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
-        
-        
+
         DTOInterest temp = new DTOInterest();
         Interest interes = interServ.crearInteres(inter);
         temp.setId(interes.getId());

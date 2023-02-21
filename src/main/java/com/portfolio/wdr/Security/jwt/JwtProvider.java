@@ -35,6 +35,11 @@ public class JwtProvider {
         UsuarioPrincipal usuarioPrincipal = (UsuarioPrincipal) authentication.getPrincipal();
 
 //      codigo para probar el manejo de las fechas del token
+//      EL FRONTEND DEBE ACCEDER POR DEFAULT CON EL ROLE_USER.
+//      PENDIENTE, AQUI DEBO HABILITAR AL USUARIO QUE TIENE SOLO ROLE_USER
+//      UN TIEMPO EXTENDIDO, EN EL FRONTEND, SI EXPIRA CUALQUIER TOKEN, DEBE EXTENDERSE COMO ROLE_USER.
+//      SI TIENE ROLE_ADMIN, SÓLO TENDRÁ UN TIEMPO RELATIVAMENTE CORTO PARA HACER CAMBIOS
+//      
         long date = new Date().getTime()+expiration*1000;
         DateFormat obj = new SimpleDateFormat("dd MMM yyyy HH:mm:ss:SSS Z");
         System.out.println("###### El token expira el :" + obj.format(date));

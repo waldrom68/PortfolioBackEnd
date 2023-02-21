@@ -9,6 +9,7 @@ import com.portfolio.wdr.repository.InterestRepository;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -75,10 +76,12 @@ public class InterestService implements IInterestService {
     }
 
     @Override
-    public Interest findByName(String nombre) {
-        return interestRepo.findByname(nombre);
+    public Optional<Interest> findBynameAndPersonId(String nombre, Long id, Interest inter){
+        Optional<Interest> temp = interestRepo.findBynameAndPersonId(nombre, id);
+        if (temp != null && temp.get().getId() == inter.getId()) {
+            return temp;
+        } else {
+            return null;
+        }
     }
-    
-    
-    
 }

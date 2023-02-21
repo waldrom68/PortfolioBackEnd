@@ -4,6 +4,7 @@ package com.portfolio.wdr.repository;
 
 import com.portfolio.wdr.model.Interest;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,6 @@ import org.springframework.stereotype.Repository;
 public interface InterestRepository extends JpaRepository<Interest, Long> {
     
     List<Interest> findByPersonId(Long Id);
-    Interest findByname(String nombre);
+    Optional<Interest> findBynameAndPersonId(String nombre, Long id);
     
 }
