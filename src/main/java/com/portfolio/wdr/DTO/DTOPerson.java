@@ -4,6 +4,7 @@ package com.portfolio.wdr.DTO;
 
 import com.portfolio.wdr.model.DisplayData;
 import java.io.Serializable;
+import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,8 +19,9 @@ public class DTOPerson implements Serializable {
     private String profession;
     private String profile;
     private String objetive;
-    private String since;
+    private Date since;
     private String email;
     private String username;
+    private String urllocation;
     private DisplayData displaydata;
 }

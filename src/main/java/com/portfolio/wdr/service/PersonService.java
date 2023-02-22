@@ -69,10 +69,12 @@ public class PersonService implements IPersonService {
         tempDTO.setProfession(tempper.getProfession());
         tempDTO.setProfile(tempper.getProfile());
         tempDTO.setObjetive(tempper.getObjetive());
-        String temp = tempper.getSince().toString();
-
-        tempDTO.setSince(temp.substring(0, 10));
+//        String temp = tempper.getSince().toString();
+//        tempDTO.setSince(temp.substring(0, 10));
+//
+        tempDTO.setSince(tempper.getSince());
         tempDTO.setEmail(tempper.getEmail());
+        tempDTO.setUrllocation(tempper.getUrllocation());
 //        tempDTO.setUsername(tempper.getUsername());
         tempDTO.setDisplaydata(tempper.getDisplaydata());
 

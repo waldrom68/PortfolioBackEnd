@@ -9,7 +9,7 @@ import com.portfolio.wdr.DTO.DTOProject;
 import com.portfolio.wdr.DTO.DTOSocialNetwork;
 import com.portfolio.wdr.DTO.DTOSoftskill;
 import com.portfolio.wdr.DTO.DTOStudie;
-import com.portfolio.wdr.DTO.DTOfullPerson;
+import com.portfolio.wdr.DTO.DTOFullPerson;
 import com.portfolio.wdr.model.Person;
 
 import java.util.List;
@@ -42,10 +42,10 @@ public class FullPersonService implements IFullPersonService {
     private IProjectService projServ;
 
     @Override
-    public DTOfullPerson verPersona(Long id) {
+    public DTOFullPerson verPersona(Long id) {
 
         Person tempper = persoServ.buscarPersona(id);
-        DTOfullPerson tempDTO = new DTOfullPerson();
+        DTOFullPerson tempDTO = new DTOFullPerson();
 
         List<DTOHardskill> temphard = hardServ.verByPersonId(id);
         List<DTOSoftskill> tempsoft = softServ.verByPersonId(id);
@@ -64,10 +64,12 @@ public class FullPersonService implements IFullPersonService {
         tempDTO.setProfession(tempper.getProfession());
         tempDTO.setProfile(tempper.getProfile());
         tempDTO.setObjetive(tempper.getObjetive());
-        String temp = tempper.getSince().toString();
-
-        tempDTO.setSince(temp.substring(0, 10));
+//        String temp = tempper.getSince().toString();
+//        tempDTO.setSince(temp.substring(0, 10));
+        tempDTO.setSince(tempper.getSince());
         tempDTO.setEmail(tempper.getEmail());
+        tempDTO.setUrllocation(tempper.getUrllocation());
+                
 //        tempDTO.setUsername(tempper.getUsername());
         tempDTO.setDisplaydata(tempper.getDisplaydata());
         tempDTO.setHardskill(temphard);

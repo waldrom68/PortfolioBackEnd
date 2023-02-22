@@ -12,6 +12,9 @@ public interface IProjectService {
     public void borrarProject(Long id);
     public Project buscarProject(Long id);
     
+    public Project findByNameAndPersonId(String nombre, Long id);
+    public boolean existeSoftInPerson(String nombre, Long id, Project objeto);
+    
     public List<Project> verProject();
     public List<DTOProject> verByPersonId(Long id);
     

@@ -2,6 +2,7 @@
 
 package com.portfolio.wdr.DTO;
 import java.io.Serializable;
+import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +14,7 @@ public class DTOProject implements Serializable {
     private String name;
     private String resume;
     private String url;
-    private String since;
+    private Date since;
     private int orderdeploy = 0;
 
     public DTOProject() {

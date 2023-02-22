@@ -2,11 +2,11 @@
 
 package com.portfolio.wdr.service;
 
-import com.portfolio.wdr.DTO.DTOfullPerson;
+import com.portfolio.wdr.DTO.DTOFullPerson;
 
 public interface IFullPersonService {
     
     public boolean existsPersonById(Long id);
-    public DTOfullPerson verPersona(Long id);
+    public DTOFullPerson verPersona(Long id);
     
 }

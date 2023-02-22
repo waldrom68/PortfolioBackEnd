@@ -28,65 +28,61 @@ public class ControllerInterest {
 
     //    Creamos la dependencia
     @Autowired
-    private IInterestService interServ;
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/ver")
-    public ResponseEntity<?> buscarPorNombre(@RequestBody Interest inter) {
-        Optional<Interest> temp = interServ.findBynameAndPersonId(inter.getName(), inter.getPerson().getId(), inter);
-        if (temp != null && Objects.equals(temp.get().getId(), inter.getId())) {
-            return new ResponseEntity(temp, HttpStatus.OK);
-        }
-        return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
-    }
+    private IInterestService objetoServ;
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit")
-    public ResponseEntity<?> crearInteres(@RequestBody Interest inter) {
-        if (StringUtils.isBlank(inter.getName())) {
+    public ResponseEntity<?> editarObjetoInter(@RequestBody Interest data) {
+        if (StringUtils.isBlank(data.getName())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (interServ.findBynameAndPersonId(inter.getName(), inter.getPerson().getId(), inter) == null) {
+        if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null
+                && !objetoServ.existeSoftInPerson(data.getName(), data.getPerson().getId(), data)) {
 
             return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
-
         try {
-            interServ.crearInteres(inter);
+            objetoServ.crearInteres(data);
             return new ResponseEntity(new Mensaje("Informacion guardada correctamente"), HttpStatus.OK);
+//        } catch (DataAccessException e) {
+//            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
         } catch (Exception e) {
             return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 // return interServ.crearInteres(inter);
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/new")
-    public ResponseEntity<?> nuevoInteres(@RequestBody Interest inter) {
-        if (StringUtils.isBlank(inter.getName())) {
+    public ResponseEntity<?> crearObjetoInter(@RequestBody Interest data) {
+        if (StringUtils.isBlank(data.getName())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (interServ.findBynameAndPersonId(inter.getName(), inter.getPerson().getId(), inter) == null) {
+        if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null) {
 
             return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
+        try {
+            Interest nuevoObjeto = objetoServ.crearInteres(data);
+            DTOInterest temp = new DTOInterest();
+            temp.setId(nuevoObjeto.getId());
+            temp.setName(nuevoObjeto.getName());
+            temp.setOrderdeploy(nuevoObjeto.getOrderdeploy());
 
-        DTOInterest temp = new DTOInterest();
-        Interest interes = interServ.crearInteres(inter);
-        temp.setId(interes.getId());
-        temp.setName(interes.getName());
-        temp.setOrderdeploy(interes.getOrderdeploy());
-        return new ResponseEntity(temp, HttpStatus.CREATED);
-
+            return new ResponseEntity(temp, HttpStatus.OK);
+//        } catch (DataAccessException e) {
+//            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/del/{id}")
-    public ResponseEntity<?> borrarInteres(@PathVariable Long id) {
+    public ResponseEntity<?> borrarObjetoInter(@PathVariable Long id) {
 
         try {
-            interServ.borrarInteres(id);
+            objetoServ.borrarInteres(id);
             return new ResponseEntity(new Mensaje("Eliminado correctamentee"), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(new Mensaje("No pudo eliminarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -98,7 +94,7 @@ public class ControllerInterest {
     @GetMapping("/list/{id}")
     public List<DTOInterest> verByPerson(@PathVariable Long id) {
 
-        return interServ.verByPersonId(id);
+        return objetoServ.verByPersonId(id);
 
     }
 

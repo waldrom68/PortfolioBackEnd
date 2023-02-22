@@ -8,7 +8,7 @@ import com.portfolio.wdr.repository.HardskillRepository;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -76,12 +76,18 @@ public class HardskillService implements IHardskillService {
     }
 
     @Override
-    public Optional<Hardskill> findBynameAndPersonId(String nombre, Long id, Hardskill hard) {
-        Optional<Hardskill> temp = hardRepo.findBynameAndPersonId(nombre, id);
-        if (temp != null && temp.get().getId() == hard.getId()) {
-            return temp;
+    public Hardskill findByNameAndPersonId(String nombre, Long id) {
+          return hardRepo.findByNameAndPersonId(nombre, id);
+
+    }
+
+    @Override
+    public boolean existeSoftInPerson(String nombre, Long id, Hardskill soft) {
+        Hardskill temp = hardRepo.findByNameAndPersonId(nombre, id);
+        if (temp != null){
+            return Objects.equals(temp.getId(), soft.getId());
         } else {
-            return null;
+        return false;
         }
     }
 }
