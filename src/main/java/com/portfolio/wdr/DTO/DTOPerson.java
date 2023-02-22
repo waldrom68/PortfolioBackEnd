@@ -22,6 +22,6 @@ public class DTOPerson implements Serializable {
     private Date since;
     private String email;
     private String username;
-    private String urllocation;
+    private String urlLocation;
     private DisplayData displaydata;
 }

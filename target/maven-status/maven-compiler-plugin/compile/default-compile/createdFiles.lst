@@ -21,6 +21,7 @@ com\portfolio\wdr\repository\ProjectRepository.class
 com\portfolio\wdr\service\IPhoneService.class
 com\portfolio\wdr\model\Softskill.class
 com\portfolio\wdr\repository\RolePositionRepository.class
+com\portfolio\wdr\DTO\DTOFullPerson.class
 com\portfolio\wdr\controller\ControllerOrganization.class
 com\portfolio\wdr\controller\ControllerStudie.class
 com\portfolio\wdr\Security\jwt\JwtEntryPoint.class
@@ -50,7 +51,6 @@ com\portfolio\wdr\Security\Service\UserDetailsImpl.class
 com\portfolio\wdr\service\IOrganizationService.class
 com\portfolio\wdr\controller\ControllerSocialNetwork.class
 com\portfolio\wdr\Security\Repository\IRolRepository.class
-com\portfolio\wdr\DTO\DTOfullPerson.class
 com\portfolio\wdr\service\IDegreeService.class
 com\portfolio\wdr\repository\HardskillRepository.class
 com\portfolio\wdr\model\Organization.class

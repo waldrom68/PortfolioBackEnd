@@ -101,7 +101,7 @@ C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOSoftskill.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\PhoneRepository.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\LaboralCareerService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerSocialNetwork.java
-C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOfullPerson.java
+C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOFullPerson.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\DisplayData.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\IHardskillService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\Security\jwt\JwtTokenFilter.java
