@@ -12,7 +12,9 @@ public interface IDegreeService {
     public void borrarDegree(Long id);
     public Degree buscarDegree(Long id);
     
-    public List<Degree> verDegree();
+    public Degree findByNameAndPersonId(String nombre, Long id);
+    public boolean existeInPerson(String nombre, Long id, Degree objeto);
+    
     public List<Degree> verByPersonId(Long id);
     
 }

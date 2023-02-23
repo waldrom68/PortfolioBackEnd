@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface DegreeRepository extends JpaRepository<Degree, Long> {
     
     List<Degree> findByPersonId(Long Id);
+    public Degree findByNameAndPersonId(String nombre, Long id);
+    
 }
