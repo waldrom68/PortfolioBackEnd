@@ -8,6 +8,7 @@ import com.portfolio.wdr.model.RolePosition;
 import com.portfolio.wdr.repository.RolePositionRepository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +46,7 @@ public class RolePositionService implements IRolePositionService {
     }
 
     @Override
-    public List<RolePosition> verByPersonId(Long id) {
+    public List<DTORolePosition> verByPersonId(Long id) {
         List<RolePosition> listrole = positionRepo.findByPersonId(id);
         List listatemp = new ArrayList();
         
@@ -59,5 +60,21 @@ public class RolePositionService implements IRolePositionService {
         }
         
         return listatemp;
+    }
+    
+    @Override
+    public RolePosition findByNameAndPersonId(String nombre, Long id) {
+        return positionRepo.findByNameAndPersonId(nombre, id);
+
+    }
+
+    @Override
+    public boolean existeInPerson(String nombre, Long id, RolePosition objeto) {
+        RolePosition temp = positionRepo.findByNameAndPersonId(nombre, id);
+        if (temp != null) {
+            return Objects.equals(temp.getId(), objeto.getId());
+        } else {
+            return false;
+        }
     }
 }

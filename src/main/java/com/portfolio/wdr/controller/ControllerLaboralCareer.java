@@ -5,6 +5,7 @@ import com.portfolio.wdr.DTO.DTOLaboralCareer;
 import com.portfolio.wdr.Security.Controller.Mensaje;
 import com.portfolio.wdr.model.LaboralCareer;
 import com.portfolio.wdr.service.ILaboralCareerService;
+import io.micrometer.common.util.StringUtils;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,14 +27,55 @@ public class ControllerLaboralCareer {
 
     //    Creamos la dependencia con el servicio
     @Autowired
-    private ILaboralCareerService laboralServ;
+    private ILaboralCareerService objetoServ;
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit")
-    public ResponseEntity<?> crearLaboralCareer(@RequestBody LaboralCareer pers) {
+    public ResponseEntity<?> editarLaboralCareer(@RequestBody LaboralCareer data) {
+        
+        if (StringUtils.isBlank(data.getResume())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (objetoServ.findByResumeAndPersonId(data.getResume(), data.getPerson().getId()) != null
+                && !objetoServ.existeInPerson(data.getResume(), data.getPerson().getId(), data)) {
+
+            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        
+        
         try {
-            laboralServ.crearLaboralCareer(pers);
+            objetoServ.crearLaboralCareer(data);
             return new ResponseEntity(new Mensaje("Informacion guardada correctamente"), HttpStatus.OK);
+//        } catch (DataAccessException e) {
+//            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/new")
+    public ResponseEntity<?> crearLaboralCareer(@RequestBody LaboralCareer data) {
+        
+        if (StringUtils.isBlank(data.getResume())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (objetoServ.findByResumeAndPersonId(data.getResume(), data.getPerson().getId()) != null) {
+
+            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+        }
+
+        
+        try {
+            LaboralCareer nuevoObjeto = objetoServ.crearLaboralCareer(data);
+            DTOLaboralCareer temp = new DTOLaboralCareer();
+            temp.setId(nuevoObjeto.getId());
+            temp.setName(nuevoObjeto.getResume());
+            
+            return new ResponseEntity(temp, HttpStatus.OK);
+     
+//            return new ResponseEntity(new Mensaje("Informacion guardada correctamente"), HttpStatus.OK);
 //        } catch (DataAccessException e) {
 //            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
         } catch (Exception e) {
@@ -45,7 +88,7 @@ public class ControllerLaboralCareer {
     @DeleteMapping("/del/{id}")
     public ResponseEntity<?> borrarLaboralCareer(@PathVariable Long id) {
         try {
-            laboralServ.borrarLaboralCareer(id);
+            objetoServ.borrarLaboralCareer(id);
             return new ResponseEntity(new Mensaje("Eliminado correctamente"), HttpStatus.OK);
 //        } catch (DataAccessException e) {
 //            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
@@ -59,7 +102,7 @@ public class ControllerLaboralCareer {
     @GetMapping("/list/{id}")
     public List<DTOLaboralCareer> verByPersonId(@PathVariable Long id) {
 
-        return laboralServ.verByPersonId(id);
+        return objetoServ.verByPersonId(id);
 
     }
 

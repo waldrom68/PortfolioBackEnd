@@ -12,5 +12,6 @@ import org.springframework.stereotype.Repository;
 public interface LaboralCareerRepository extends JpaRepository<LaboralCareer, Long> {
     
     List<LaboralCareer> findByPersonId(Long Id);
+    public LaboralCareer findByResumeAndPersonId(String nombre, Long id);
     
 }

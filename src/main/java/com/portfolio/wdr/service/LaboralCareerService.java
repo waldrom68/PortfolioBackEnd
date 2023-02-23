@@ -11,6 +11,7 @@ import com.portfolio.wdr.repository.LaboralCareerRepository;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -73,13 +74,12 @@ public class LaboralCareerService implements ILaboralCareerService {
 //            tempDTO.setPosition(elemento.getPosition());
             tempDTO.setResume(elemento.getResume());
             
-            String temp = elemento.getStartDate().toString();
-            tempDTO.setStartDate(temp.substring(0, 10));
+            tempDTO.setStartDate(elemento.getStartDate());
             
-            String temp1 = elemento.getEndDate().toString();
-            tempDTO.setEndDate(temp1.substring(0, 10));
+//            String temp1 = elemento.getEndDate().toString();
+//            tempDTO.setEndDate(temp1.substring(0, 10));
             
-            
+            tempDTO.setEndDate(elemento.getStartDate());
             tempDTO.setOrderdeploy(elemento.getOrderdeploy());
             tempDTO.setStatus(elemento.isStatus());
             
@@ -101,5 +101,19 @@ public class LaboralCareerService implements ILaboralCareerService {
         
     }
     
-    
+    @Override
+    public LaboralCareer findByResumeAndPersonId(String nombre, Long id) {
+        return laboralRepo.findByResumeAndPersonId(nombre, id);
+
+    }
+
+    @Override
+    public boolean existeInPerson(String nombre, Long id, LaboralCareer objeto) {
+        LaboralCareer temp = laboralRepo.findByResumeAndPersonId(nombre, id);
+        if (temp != null) {
+            return Objects.equals(temp.getId(), objeto.getId());
+        } else {
+            return false;
+        }
+    }
 }
