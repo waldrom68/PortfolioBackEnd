@@ -44,7 +44,7 @@ public class DegreeService implements IDegreeService {
     }
 
     @Override
-    public List<Degree> verByPersonId(Long id) {
+    public List<DTODegree> verByPersonId(Long id) {
         List<Degree> liststudie = degreeRepo.findByPersonId(id);
         List listatemp = new ArrayList();
 

@@ -11,5 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface OrganizationRepository extends JpaRepository<Organization, Long> {
     
     List<Organization> findByPersonId(Long Id);
+    public Organization findByNameAndPersonId(String nombre, Long id);
     
 }

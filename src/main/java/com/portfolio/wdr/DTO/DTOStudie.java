@@ -5,6 +5,7 @@ package com.portfolio.wdr.DTO;
 import com.portfolio.wdr.model.Degree;
 import com.portfolio.wdr.model.Organization;
 import java.io.Serializable;
+import java.util.Date;
 
 
 import lombok.Getter;
@@ -15,8 +16,8 @@ import lombok.Setter;
 public class DTOStudie  implements Serializable {
     private Long id;
     private String name;
-    private String startDate;
-    private String endDate;
+    private Date startDate;
+    private Date endDate;
     private int orderdeploy ;
     private boolean status;
     

@@ -11,6 +11,7 @@ import com.portfolio.wdr.repository.StudieRepository;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -72,13 +73,13 @@ public class StudieService implements IStudieService {
             tempDTO.setId(elemento.getId());
             tempDTO.setName(elemento.getName());
             
-            String temp = elemento.getStartDate().toString();
-            tempDTO.setStartDate(temp.substring(0, 10));
-//            tempDTO.setStartDate(elemento.getStartDate());
+//            String temp = elemento.getStartDate().toString();
+//            tempDTO.setStartDate(temp.substring(0, 10));
+            tempDTO.setStartDate(elemento.getStartDate());
             
-            String temp2 = elemento.getEndDate().toString();
-            tempDTO.setEndDate(temp2.substring(0, 10));
-//            tempDTO.setEndDate(elemento.getEndDate());
+//            String temp2 = elemento.getEndDate().toString();
+//            tempDTO.setEndDate(temp2.substring(0, 10));
+            tempDTO.setEndDate(elemento.getEndDate());
             
             tempDTO.setOrderdeploy(elemento.getOrderdeploy());
             tempDTO.setStatus(elemento.isStatus());
@@ -100,5 +101,19 @@ public class StudieService implements IStudieService {
         
     }
 
-    
+    @Override
+    public Studie findByNameAndPersonId(String nombre, Long id) {
+        return studieRepo.findByNameAndPersonId(nombre, id);
+
+    }
+
+    @Override
+    public boolean existeInPerson(String nombre, Long id, Studie objeto) {
+        Studie temp = studieRepo.findByNameAndPersonId(nombre, id);
+        if (temp != null) {
+            return Objects.equals(temp.getId(), objeto.getId());
+        } else {
+            return false;
+        }
+    }
 }

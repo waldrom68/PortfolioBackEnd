@@ -8,6 +8,7 @@ import com.portfolio.wdr.model.Person;
 import com.portfolio.wdr.repository.OrganizationRepository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +47,7 @@ public class OrganizationService implements IOrganizationService {
     }
 
     @Override
-    public List<Organization> verByPersonId(Long id) {
+    public List<DTOOrganization> verByPersonId(Long id) {
         List<Organization> listorga = orgaRepo.findByPersonId(id);
         List listatemp = new ArrayList();
         
@@ -66,4 +67,19 @@ public class OrganizationService implements IOrganizationService {
         return listatemp;
      }
 
+    @Override
+    public Organization findByNameAndPersonId(String nombre, Long id) {
+        return orgaRepo.findByNameAndPersonId(nombre, id);
+
+    }
+
+    @Override
+    public boolean existeInPerson(String nombre, Long id, Organization objeto) {
+        Organization temp = orgaRepo.findByNameAndPersonId(nombre, id);
+        if (temp != null) {
+            return Objects.equals(temp.getId(), objeto.getId());
+        } else {
+            return false;
+        }
+    }
 }

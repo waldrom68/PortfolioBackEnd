@@ -101,7 +101,7 @@ public class ControllerDegree {
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/list/{id}")
-    public List<Degree> verByPersonId(@PathVariable Long id) {
+    public List<DTODegree> verByPersonId(@PathVariable Long id) {
 
         return objetoServ.verByPersonId(id);
 

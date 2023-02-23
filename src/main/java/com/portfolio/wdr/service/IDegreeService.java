@@ -2,6 +2,7 @@
 
 package com.portfolio.wdr.service;
 
+import com.portfolio.wdr.DTO.DTODegree;
 import com.portfolio.wdr.model.Degree;
 import java.util.List;
 
@@ -15,6 +16,6 @@ public interface IDegreeService {
     public Degree findByNameAndPersonId(String nombre, Long id);
     public boolean existeInPerson(String nombre, Long id, Degree objeto);
     
-    public List<Degree> verByPersonId(Long id);
+    public List<DTODegree> verByPersonId(Long id);
     
 }

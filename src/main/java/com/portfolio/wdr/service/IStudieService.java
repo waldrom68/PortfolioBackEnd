@@ -13,6 +13,9 @@ public interface IStudieService {
     public void borrarStudie(Long id);
     public Studie buscarStudie(Long id);
     
+    public Studie findByNameAndPersonId(String nombre, Long id);
+    public boolean existeInPerson(String nombre, Long id, Studie objeto);
+    
 //    public List<Studie> verStudie();
     public List<DTOStudie> verByPersonId(Long id);
     
