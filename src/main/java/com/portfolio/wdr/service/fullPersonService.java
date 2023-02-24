@@ -1,6 +1,8 @@
 // Orden de creacion 4.-
 package com.portfolio.wdr.service;
 
+import com.portfolio.wdr.DTO.DTODegree;
+import com.portfolio.wdr.DTO.DTOFullPerson;
 import com.portfolio.wdr.DTO.DTOHardskill;
 import com.portfolio.wdr.DTO.DTOInterest;
 import com.portfolio.wdr.DTO.DTOLaboralCareer;
@@ -9,7 +11,9 @@ import com.portfolio.wdr.DTO.DTOProject;
 import com.portfolio.wdr.DTO.DTOSocialNetwork;
 import com.portfolio.wdr.DTO.DTOSoftskill;
 import com.portfolio.wdr.DTO.DTOStudie;
-import com.portfolio.wdr.DTO.DTOFullPerson;
+//import com.portfolio.wdr.DTO.DTOFullPerson;
+import com.portfolio.wdr.DTO.DTOOrganization;
+import com.portfolio.wdr.DTO.DTORolePosition;
 import com.portfolio.wdr.model.Person;
 
 import java.util.List;
@@ -22,24 +26,19 @@ public class FullPersonService implements IFullPersonService {
 
     // Para la conexion con el JPA : PersonRepository hara de intermediario entre
     // la DB y nuestros metodos, para ello deberemos inyectar nuestra dependencia
-    @Autowired
-    public PersonService persoServ;
-    @Autowired
-    private IHardskillService hardServ;
-    @Autowired
-    private ISoftskillService softServ;
-    @Autowired
-    private IInterestService intServ;
-    @Autowired
-    private ILaboralCareerService labServ;
-    @Autowired
-    private IStudieService studServ;
-    @Autowired
-    private IPhoneService phonServ;
-    @Autowired
-    private ISocialnetworkService socialServ;
-    @Autowired
-    private IProjectService projServ;
+    @Autowired public PersonService persoServ;
+    @Autowired private IHardskillService hardServ;
+    @Autowired private ISoftskillService softServ;
+    @Autowired private IInterestService intServ;
+    @Autowired private ILaboralCareerService labServ;
+    @Autowired private IOrganizationService orgaServ;
+    @Autowired private IDegreeService degreeServ;
+    @Autowired private IRolePositionService positionServ;
+   
+    @Autowired private IStudieService studServ;
+    @Autowired private IPhoneService phonServ;
+    @Autowired private ISocialnetworkService socialServ;
+    @Autowired private IProjectService projServ;
 
     @Override
     public DTOFullPerson verPersona(Long id) {
@@ -50,6 +49,12 @@ public class FullPersonService implements IFullPersonService {
         List<DTOHardskill> temphard = hardServ.verByPersonId(id);
         List<DTOSoftskill> tempsoft = softServ.verByPersonId(id);
         List<DTOInterest> tempint = intServ.verByPersonId(id);
+        
+        List<DTOOrganization> temporga = orgaServ.verByPersonId(id);
+        List<DTODegree> tempdegree = degreeServ.verByPersonId(id);
+        List<DTORolePosition> tempposition = positionServ.verByPersonId(id);
+        
+        
         List<DTOLaboralCareer> templab = labServ.verByPersonId(id);
         List<DTOStudie> tempstu = studServ.verByPersonId(id);
         List<DTOPhone> tempphon = phonServ.verByPersonId(id);
@@ -75,6 +80,12 @@ public class FullPersonService implements IFullPersonService {
         tempDTO.setHardskill(temphard);
         tempDTO.setSoftskill(tempsoft);
         tempDTO.setInterest(tempint);
+        
+        tempDTO.setDegree(tempdegree);
+        tempDTO.setOrganization(temporga);
+        tempDTO.setRoleposition(tempposition);
+        
+        
         tempDTO.setLaboralCareer(templab);
         tempDTO.setStudie(tempstu);
         tempDTO.setPhone(tempphon);

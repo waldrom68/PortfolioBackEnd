@@ -29,6 +29,9 @@ public class DTOFullPerson implements Serializable {
     private List <DTOHardskill> hardskill;
     private List <DTOSoftskill> softskill;
     private List <DTOInterest> interest;
+    private List <DTOOrganization> organization;
+    private List <DTODegree> degree;
+    private List <DTORolePosition> roleposition;
     private List <DTOLaboralCareer> laboralCareer;
     private List <DTOStudie> studie;
     private List <DTOPhone> phone;

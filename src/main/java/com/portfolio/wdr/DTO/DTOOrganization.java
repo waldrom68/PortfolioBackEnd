@@ -2,8 +2,8 @@
 
 package com.portfolio.wdr.DTO;
 
-
 import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
