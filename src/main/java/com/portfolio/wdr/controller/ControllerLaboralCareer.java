@@ -32,17 +32,16 @@ public class ControllerLaboralCareer {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit")
     public ResponseEntity<?> editarLaboralCareer(@RequestBody LaboralCareer data) {
-        
+
         if (StringUtils.isBlank(data.getResume())) {
-            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El resumen es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (objetoServ.findByResumeAndPersonId(data.getResume(), data.getPerson().getId()) != null
                 && !objetoServ.existeInPerson(data.getResume(), data.getPerson().getId(), data)) {
 
-            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El resumen ya existe"), HttpStatus.BAD_REQUEST);
         }
-        
-        
+
         try {
             objetoServ.crearLaboralCareer(data);
             return new ResponseEntity(new Mensaje("Informacion guardada correctamente"), HttpStatus.OK);
@@ -53,28 +52,33 @@ public class ControllerLaboralCareer {
         }
 
     }
-    
+
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/new")
     public ResponseEntity<?> crearLaboralCareer(@RequestBody LaboralCareer data) {
-        
+
         if (StringUtils.isBlank(data.getResume())) {
-            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El resumen es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (objetoServ.findByResumeAndPersonId(data.getResume(), data.getPerson().getId()) != null) {
 
-            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El resumen ya existe"), HttpStatus.BAD_REQUEST);
         }
 
-        
         try {
             LaboralCareer nuevoObjeto = objetoServ.crearLaboralCareer(data);
             DTOLaboralCareer temp = new DTOLaboralCareer();
             temp.setId(nuevoObjeto.getId());
-            temp.setName(nuevoObjeto.getResume());
-            
+            temp.setResume(nuevoObjeto.getResume());
+            temp.setStartDate(nuevoObjeto.getStartDate());
+            temp.setEndDate(nuevoObjeto.getEndDate());
+            temp.setStatus(true);
+            temp.setOrderdeploy(nuevoObjeto.getOrderdeploy());
+            temp.setOrganization(nuevoObjeto.getOrganization());
+            temp.setRoleposition(nuevoObjeto.getRoleposition());
+
             return new ResponseEntity(temp, HttpStatus.OK);
-     
+
 //            return new ResponseEntity(new Mensaje("Informacion guardada correctamente"), HttpStatus.OK);
 //        } catch (DataAccessException e) {
 //            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
@@ -98,15 +102,37 @@ public class ControllerLaboralCareer {
 
     }
 
+
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/list/{id}")
-    public List<DTOLaboralCareer> verByPersonId(@PathVariable Long id) {
+    public List<DTOLaboralCareer> verByPersonId(@PathVariable Long id
+    ) {
 
         return objetoServ.verByPersonId(id);
 
     }
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/reorder")
+    public ResponseEntity<?> reorderEntity(@RequestBody List<LaboralCareer> data) {
+
+        try {
+            for (LaboralCareer elemento : data) {
+                this.editarLaboralCareer(elemento);
+                System.out.println("Hice el proceso para" + elemento);
+            }
+            return new ResponseEntity(new Mensaje("Orden de la trayectoria actualizada"), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
 }
+
+
+
 
 
 //    @GetMapping ("/list/laboralcareer/all")

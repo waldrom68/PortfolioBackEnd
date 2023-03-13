@@ -34,12 +34,12 @@ public class ControllerStudie {
     public ResponseEntity<?> editarStudie(@RequestBody Studie data) {
         
         if (StringUtils.isBlank(data.getName())) {
-            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El resumen es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null
                 && !objetoServ.existeInPerson(data.getName(), data.getPerson().getId(), data)) {
 
-            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El resumen ya existe"), HttpStatus.BAD_REQUEST);
         }
         
         try {
@@ -57,11 +57,11 @@ public class ControllerStudie {
     public ResponseEntity<?> crearDegree(@RequestBody Studie data) {
         
         if (StringUtils.isBlank(data.getName())) {
-            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El resumen es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null) {
 
-            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El resumen ya existe"), HttpStatus.BAD_REQUEST);
         }
 
         
@@ -70,6 +70,12 @@ public class ControllerStudie {
             DTOStudie temp = new DTOStudie();
             temp.setId(nuevoObjeto.getId());
             temp.setName(nuevoObjeto.getName());
+            temp.setStartDate(nuevoObjeto.getStartDate());
+            temp.setEndDate(nuevoObjeto.getEndDate());
+            temp.setStatus(true);
+            temp.setOrderdeploy(nuevoObjeto.getOrderdeploy());
+            temp.setOrganization(nuevoObjeto.getOrganization());
+            temp.setDegree(nuevoObjeto.getDegree());
             
             return new ResponseEntity(temp, HttpStatus.OK);
      
@@ -102,6 +108,24 @@ public class ControllerStudie {
             return new ResponseEntity(new Mensaje("No pudo eliminarse el Estudio, verifique el ID"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+        @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/reorder")
+    public ResponseEntity<?> reorderEntity(@RequestBody List<Studie> data) {
+
+        try {
+            for (Studie elemento : data) {
+                this.editarStudie(elemento);
+                System.out.println("Hice el proceso para" + elemento);
+            }
+            return new ResponseEntity(new Mensaje("Orden de los estudios actualizado"), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+}
 }
 
 //    @RequestMapping("/hardskill")

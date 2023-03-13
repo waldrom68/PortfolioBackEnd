@@ -96,9 +96,27 @@ public class ControllerHardskill {
         return objetoServ.verByPersonId(id);
 
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/reorder")
+    public ResponseEntity<?> reorderEntity(@RequestBody List<Hardskill> data) {
+
+        try {
+            for (Hardskill elemento : data) {
+                this.editarObjetoHard(elemento);
+                System.out.println("Hice el proceso para" + elemento);
+            }
+            return new ResponseEntity(new Mensaje("Orden de los hardskill actualizado"), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+}
+
 //    @GetMapping ("/list/all")
 //    public List<Hardskill> verHard() {
 //    
 //        return hardServ.verHard();
 //    
-}

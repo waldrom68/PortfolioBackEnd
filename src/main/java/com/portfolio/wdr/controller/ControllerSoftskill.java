@@ -97,6 +97,23 @@ public class ControllerSoftskill {
         return objetoServ.verByPersonId(id);
 
     }
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/reorder")
+    public ResponseEntity<?> reorderEntity(@RequestBody List<Softskill> data) {
+
+        try {
+            for (Softskill elemento : data) {
+                this.editarObjetoSoft(elemento);
+                System.out.println("Hice el proceso para" + elemento);
+            }
+            return new ResponseEntity(new Mensaje("Orden de los softskill actualizado"), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
 //    @GetMapping ("/list/softskill/all")
 //    public List<Softskill> verSoft() {

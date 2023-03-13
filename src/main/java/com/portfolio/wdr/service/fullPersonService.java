@@ -2,7 +2,7 @@
 package com.portfolio.wdr.service;
 
 import com.portfolio.wdr.DTO.DTODegree;
-import com.portfolio.wdr.DTO.DTOFullPerson;
+import com.portfolio.wdr.DTO.DTOfullPerson;
 import com.portfolio.wdr.DTO.DTOHardskill;
 import com.portfolio.wdr.DTO.DTOInterest;
 import com.portfolio.wdr.DTO.DTOLaboralCareer;
@@ -22,7 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FullPersonService implements IFullPersonService {
+public class fullPersonService implements IFullPersonService {
 
     // Para la conexion con el JPA : PersonRepository hara de intermediario entre
     // la DB y nuestros metodos, para ello deberemos inyectar nuestra dependencia
@@ -41,10 +41,10 @@ public class FullPersonService implements IFullPersonService {
     @Autowired private IProjectService projServ;
 
     @Override
-    public DTOFullPerson verPersona(Long id) {
+    public DTOfullPerson verPersona(Long id) {
 
         Person tempper = persoServ.buscarPersona(id);
-        DTOFullPerson tempDTO = new DTOFullPerson();
+        DTOfullPerson tempDTO = new DTOfullPerson();
 
         List<DTOHardskill> temphard = hardServ.verByPersonId(id);
         List<DTOSoftskill> tempsoft = softServ.verByPersonId(id);

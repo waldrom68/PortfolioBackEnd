@@ -91,7 +91,7 @@ public class ControllerRolePosition {
             return new ResponseEntity(new Mensaje("Posicion/Rol eliminado"), HttpStatus.OK);
 
         } catch (Exception e) {
-            return new ResponseEntity(new Mensaje("No pudo eliminarse la Posicion/Rol, verifique el ID o que no hayan Experiencia laboral con esta Posicion/Rol asociada"), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(new Mensaje("No pudo eliminarse la Posicion/Rol, verifique que no existan Experiencias laboral con esta Posicion/Rol asociado"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

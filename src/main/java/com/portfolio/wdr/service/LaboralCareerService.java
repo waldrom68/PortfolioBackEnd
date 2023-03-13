@@ -103,6 +103,9 @@ public class LaboralCareerService implements ILaboralCareerService {
     
     @Override
     public LaboralCareer findByResumeAndPersonId(String nombre, Long id) {
+            System.out.println("###### Encontré esto en: findByResumeAndPersonId");
+            LaboralCareer temp = laboralRepo.findByResumeAndPersonId(nombre, id);
+            System.out.println(temp);
         return laboralRepo.findByResumeAndPersonId(nombre, id);
 
     }
@@ -111,6 +114,8 @@ public class LaboralCareerService implements ILaboralCareerService {
     public boolean existeInPerson(String nombre, Long id, LaboralCareer objeto) {
         LaboralCareer temp = laboralRepo.findByResumeAndPersonId(nombre, id);
         if (temp != null) {
+            System.out.println("###### Encontré esto en: existeInPerson");
+            System.out.println(temp);
             return Objects.equals(temp.getId(), objeto.getId());
         } else {
             return false;

@@ -15,7 +15,7 @@ import lombok.Setter;
 public class DTOLaboralCareer   implements Serializable {
     private Long id;
 //    private String position;
-    private String name;
+//    private String name;
     private String resume;
     private Date startDate;
     private Date endDate;

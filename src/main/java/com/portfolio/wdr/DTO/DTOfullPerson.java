@@ -12,7 +12,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DTOFullPerson implements Serializable {
+public class DTOfullPerson implements Serializable {
     private long id;
     private String name;
     private String lastName;
@@ -38,7 +38,7 @@ public class DTOFullPerson implements Serializable {
     private List <DTOSocialNetwork> socialnetwork;
     private List <DTOProject> project;
 
-    public DTOFullPerson() {
+    public DTOfullPerson() {
     }
     
     

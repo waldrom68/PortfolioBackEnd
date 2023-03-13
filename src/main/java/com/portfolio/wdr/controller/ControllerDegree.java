@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// Niveles de formacion educativa, formal e informal
 // Recibe las peticiones y delega el negocio (es el pivot de la aplicacion)
 @RestController
 @RequestMapping("/degree")
@@ -95,7 +96,7 @@ public class ControllerDegree {
             return new ResponseEntity(new Mensaje("Degree eliminado"), HttpStatus.OK);
 
         } catch (Exception e) {
-            return new ResponseEntity(new Mensaje("No pudo eliminarse el Degree, verifique el ID o que no hayan Estudios con este Degree asociado"), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(new Mensaje("No pudo eliminarse el Degree, verifique que no existan Estudios con este Nivel de formación asociado"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

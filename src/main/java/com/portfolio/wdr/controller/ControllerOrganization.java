@@ -94,7 +94,7 @@ public class ControllerOrganization {
             return new ResponseEntity(new Mensaje("Organizacion eliminado"), HttpStatus.OK);
 
         } catch (Exception e) {
-            return new ResponseEntity(new Mensaje("No pudo eliminarse la Organizacion, verifique el ID o que no hayan Estudios o Trabajos con esta Organizacion asociada"), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(new Mensaje("No pudo eliminarse la Organizacion, verifique que no existan Estudios o Trabajos con esta Organizacion asociada"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }

@@ -75,7 +75,7 @@ C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\RolePosition.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\Security\Service\RolService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerDegree.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\Security\DTO\JwtDTO.java
-C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\FullPersonService.java
+C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\fullPersonService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\DegreeRepository.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Interest.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerFullPerson.java
@@ -101,7 +101,7 @@ C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOSoftskill.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\PhoneRepository.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\LaboralCareerService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerSocialNetwork.java
-C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOFullPerson.java
+C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOfullPerson.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\DisplayData.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\IHardskillService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\Security\jwt\JwtTokenFilter.java

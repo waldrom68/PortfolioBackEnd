@@ -97,6 +97,24 @@ public class ControllerInterest {
         return objetoServ.verByPersonId(id);
 
     }
+    
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/reorder")
+    public ResponseEntity<?> reorderEntity(@RequestBody List<Interest> data) {
+
+        try {
+            for (Interest elemento : data) {
+                this.editarObjetoInter(elemento);
+                System.out.println("Hice el proceso para" + elemento);
+            }
+            return new ResponseEntity(new Mensaje("Orden de los Interest actualizado"), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
 }
 
