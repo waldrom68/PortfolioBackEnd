@@ -108,7 +108,9 @@ public class ControllerStudie {
             return new ResponseEntity(new Mensaje("No pudo eliminarse el Estudio, verifique el ID"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-        @PreAuthorize("hasRole('ADMIN')")
+    
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/reorder")
     public ResponseEntity<?> reorderEntity(@RequestBody List<Studie> data) {
 
@@ -126,7 +128,7 @@ public class ControllerStudie {
     }
 
 }
-}
+
 
 //    @RequestMapping("/hardskill")
 //    @PreAuthorize("hasRole('ADMIN')")

@@ -79,7 +79,7 @@ public class LaboralCareerService implements ILaboralCareerService {
 //            String temp1 = elemento.getEndDate().toString();
 //            tempDTO.setEndDate(temp1.substring(0, 10));
             
-            tempDTO.setEndDate(elemento.getStartDate());
+            tempDTO.setEndDate(elemento.getEndDate());
             tempDTO.setOrderdeploy(elemento.getOrderdeploy());
             tempDTO.setStatus(elemento.isStatus());
             

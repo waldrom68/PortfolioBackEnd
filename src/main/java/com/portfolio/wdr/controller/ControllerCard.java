@@ -52,6 +52,23 @@ public class ControllerCard {
         }
 
     }
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/reorder")
+    public ResponseEntity<?> reorderEntity(@RequestBody List<Card> data) {
+
+        try {
+            for (Card elemento : data) {
+                this.crearCard(elemento);
+                System.out.println("Hice el proceso para" + elemento);
+            }
+            return new ResponseEntity(new Mensaje("Orden de las tarjetas actualizadas"), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
 }
 
