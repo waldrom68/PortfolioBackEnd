@@ -24,6 +24,7 @@ public class DTOfullPerson implements Serializable {
     private Date since;
     private String email;
     private String urlLocation;
+    private String pathBgImage;
 //    private String username;
     private DisplayData displaydata;
     private List <DTOHardskill> hardskill;

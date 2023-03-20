@@ -59,6 +59,8 @@ public class Person {
     private Date since;
     @Column(nullable=false, length=45, unique = true)
     private String email;
+    
+    private String pathBgImage;
     private String urlLocation;
 //    @Column(nullable=false, length=45, unique = true)
 //    private String username;
@@ -109,7 +111,7 @@ public class Person {
         this.id = id;
     }
 
-    public Person(String name, String lastName, String pathFoto, String location, String profession, String profile, String objetive, Date since, String email, String urlLocation) {
+    public Person(String name, String lastName, String pathFoto, String location, String profession, String profile, String objetive, Date since, String email, String urlLocation, String pathBgImage) {
         this.name = name;
         this.lastName = lastName;
         this.pathFoto = pathFoto;
@@ -119,6 +121,7 @@ public class Person {
         this.objetive = objetive;
         this.since = since;
         this.email = email;
+        this.pathBgImage = pathBgImage;
         this.urlLocation = urlLocation;
 //        this.username = username;
 //        this.password = password;
