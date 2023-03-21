@@ -42,7 +42,7 @@ public class ControllerPerson {
     @PostMapping("/edit")  // edit and create Person
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> crearPersona(@RequestBody Person pers) {
-        System.out.println(pers.toString());
+//        System.out.println(pers.toString());
         Person persona = persoServ.buscarPersona(pers.getId());
         String respuesta = "";
 

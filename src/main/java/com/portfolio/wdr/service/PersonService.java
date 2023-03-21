@@ -74,6 +74,7 @@ public class PersonService implements IPersonService {
 //
         tempDTO.setSince(tempper.getSince());
         tempDTO.setEmail(tempper.getEmail());
+        tempDTO.setPathBgImage(tempper.getPathBgImage());
         tempDTO.setUrlLocation(tempper.getUrlLocation());
 //        tempDTO.setUsername(tempper.getUsername());
         tempDTO.setDisplaydata(tempper.getDisplaydata());

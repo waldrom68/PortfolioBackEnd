@@ -9,6 +9,8 @@ import com.portfolio.wdr.repository.SocialNetworkRepository;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -73,6 +75,23 @@ public class SocialNetworkService implements ISocialnetworkService {
          
         
         return listatemp;
+    }
+    
+    
+    @Override
+    public SocialNetwork findByNameAndPersonId(String nombre, Long id) {
+        return socialRepo.findByNameAndPersonId(nombre, id);
+
+    }
+
+    @Override
+    public boolean existeSoftInPerson(String nombre, Long id, SocialNetwork social) {
+        SocialNetwork temp = socialRepo.findByNameAndPersonId(nombre, id);
+        if (temp != null) {
+            return Objects.equals(temp.getId(), social.getId());
+        } else {
+            return false;
+        }
     }
     
 }

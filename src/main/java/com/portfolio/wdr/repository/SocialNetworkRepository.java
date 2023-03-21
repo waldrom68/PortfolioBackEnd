@@ -11,5 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface SocialNetworkRepository extends JpaRepository<SocialNetwork, Long>{
     
        List<SocialNetwork> findByPersonId(Long Id);
+       SocialNetwork findByNameAndPersonId(String nombre, Long id);
        
 }
