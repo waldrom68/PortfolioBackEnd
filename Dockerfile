@@ -3,7 +3,7 @@ FROM amazoncorretto:19-alpine-jdk
 
 MAINTAINER WDR
 
-COPY target/wdr-0.0.1-SNAPSHOT.jar app.jar
+COPY target/wdr-1.0.0.jar app.jar
 
 EXPOSE 8080
 
