@@ -23,11 +23,11 @@ public class ControllerFullPerson {
 //    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/fullperson/view/{id}")
     public ResponseEntity<?> mostrarPersona(@PathVariable Long id) {
-        if (persoServ.existsPersonById(id)) {
+//        if (persoServ.existsPersonById(id)) {
             return new ResponseEntity(persoServ.verPersona(id), HttpStatus.OK);
         }
         
-        return new ResponseEntity(new Mensaje("No existe lo solicitado, verifique el ID"), HttpStatus.BAD_REQUEST);
-
-    }
+//        return new ResponseEntity(new Mensaje("No existe lo solicitado, verifique el ID"), HttpStatus.BAD_REQUEST);
+//
+//    }
 }

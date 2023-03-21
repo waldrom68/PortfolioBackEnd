@@ -97,9 +97,9 @@ public class fullPersonService implements IFullPersonService {
     }
 
 //        throw new UnsupportedOperationException("Not supported yet.");
-    @Override
-    public boolean existsPersonById(Long id) {
-        return persoServ.existsPersonById(id);
-    }
+//    @Override
+//    public boolean existsPersonById(Long id) {
+//        return persoServ.existsPersonById(id);
+//    }
 
 }

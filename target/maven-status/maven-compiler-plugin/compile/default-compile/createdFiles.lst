@@ -40,7 +40,6 @@ com\portfolio\wdr\controller\ControllerDisplay.class
 com\portfolio\wdr\Security\jwt\JwtProvider.class
 com\portfolio\wdr\Application.class
 com\portfolio\wdr\controller\ControllerCard.class
-.netbeans_automatic_build
 com\portfolio\wdr\DTO\DTOOrganization.class
 com\portfolio\wdr\service\InterestService.class
 com\portfolio\wdr\service\IPersonService.class
