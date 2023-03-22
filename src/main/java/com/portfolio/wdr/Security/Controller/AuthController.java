@@ -15,6 +15,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -32,8 +33,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 //@RequestMapping("/auth")
-@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
-// @CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200/", "https://portfolio-frontend-wdr.web.app/"})
+// @CrossOrigin(origins = "http://localhost:4200/")
 public class AuthController {
 
     @Autowired PasswordEncoder passwordEncoder;
@@ -54,6 +55,7 @@ public class AuthController {
     }
     
     @PostMapping("/auth/new")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> nuevo(@Validated @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Campos mal puestos o email invalido"), HttpStatus.BAD_REQUEST);
