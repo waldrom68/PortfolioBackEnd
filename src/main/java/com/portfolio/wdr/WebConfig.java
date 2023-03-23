@@ -19,10 +19,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("https://portfolio-frontend-wdr.web.app");
-//            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-//            .allowedOrigins("*")
-//            .allowedHeaders("*");
+        registry.addMapping("https://portfolio-frontend-wdr.web.app")
+            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+            .allowedOrigins("*")
+            .allowedHeaders("*");
 
         System.out.println("###### WebConfig class ######");
         Date date = new Date();
