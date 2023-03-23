@@ -12,6 +12,7 @@ com\portfolio\wdr\model\Hardskill.class
 com\portfolio\wdr\repository\OrganizationRepository.class
 com\portfolio\wdr\Security\Service\UsuarioService.class
 com\portfolio\wdr\repository\ProjectMediaRepository.class
+com\portfolio\wdr\Security\Controller\Origins.class
 com\portfolio\wdr\service\fullPersonService.class
 com\portfolio\wdr\WebConfig.class
 com\portfolio\wdr\repository\StudieRepository.class

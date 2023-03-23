@@ -12,6 +12,7 @@ import com.portfolio.wdr.Security.jwt.JwtProvider;
 import java.util.HashSet;
 import java.util.Set;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,9 +32,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 //@RequestMapping("/auth")
-@CrossOrigin(origins = {"http://localhost:4200/", "https://portfolio-frontend-wdr.web.app/"})
+@CrossOrigin(origins = { "http://localhost:4200/", "https://portfolio-frontend-wdr.web.app"})
 // @CrossOrigin(origins = "http://localhost:4200/")
 public class AuthController {
 

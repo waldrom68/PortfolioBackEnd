@@ -23,6 +23,7 @@ C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\DTO\DTOPerson.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\SoftskillRepository.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\service\SoftskillService.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\controller\ControllerPhone.java
+C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\Security\Controller\Origins.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Card.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\model\Phone.java
 C:\PortfolioBackEnd\src\main\java\com\portfolio\wdr\repository\ProjectRepository.java
