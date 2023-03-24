@@ -11,7 +11,7 @@ import lombok.Setter;
 public class DTOSocialNetwork  implements Serializable {
     private long id;
     private String name;
-    private String pathIcon;
+    private String iconname;
     private String url;
     private int orderdeploy;
 

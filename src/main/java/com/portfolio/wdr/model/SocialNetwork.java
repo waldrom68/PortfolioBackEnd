@@ -40,14 +40,14 @@ public class SocialNetwork {
     
     @Column(nullable=false, length=45)
     private String name;
+    private int orderdeploy = 0 ;
+    @Column(length=45)
+    private String iconname;
     
-    @Column(nullable=false, length=45)
-    private String pathIcon;
     
+    @Column(nullable=false, length=250)
     private String url;
     
-    @Column(nullable=false)
-    private int orderdeploy = 0 ;
     
     // El Many apunta a esta Entity y el One al modelo de la relacion
     // Si deja de existir este registro, debe mantener a quien lo contenía.
@@ -58,15 +58,32 @@ public class SocialNetwork {
     public SocialNetwork() {
     }
 
-    public SocialNetwork(Long id, String name, String pathIcon, String url, Person person) {
+//    public SocialNetwork(String name, String iconname, String url, Person person) {
+//        this.name = name;
+//        this.iconname = iconname;
+//        this.url = url;
+//
+//        this.person = person;
+//    }
+
+    public SocialNetwork(long id, String name, String iconname, String url, Person person) {
         this.id = id;
         this.name = name;
-        this.pathIcon = pathIcon;
+        this.iconname = iconname;
         this.url = url;
         this.person = person;
     }
 
 
+    
+@Override
+      public String toString() {
+        return "SocialNetwork{" + "id=" + id + ", name=" + name +
+                ", orderdeploy=" + orderdeploy + 
+                ", iconname=" + iconname +
+                ", url=" + url +
+                ", person=" + person + '}';
+    }
     
     
     

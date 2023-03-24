@@ -55,27 +55,32 @@ public class ControllerSocialNetwork {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/new")
-    public ResponseEntity<?> crearObjetoSocial(@RequestBody SocialNetwork data) {
-        if (StringUtils.isBlank(data.getName())) {
+    public ResponseEntity<?> crearObjetoSocial(@RequestBody SocialNetwork social) {
+        if (StringUtils.isBlank(social.getName())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null) {
+        if (objetoServ.findByNameAndPersonId(social.getName(), social.getPerson().getId()) != null) {
 
             return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
         try {
-            SocialNetwork nuevoObjeto = objetoServ.crearSocial(data);
-            DTOSocialNetwork temp = new DTOSocialNetwork();
-            temp.setId(nuevoObjeto.getId());
-            temp.setName(nuevoObjeto.getName());
-            temp.setOrderdeploy(nuevoObjeto.getOrderdeploy());
-            temp.setPathIcon(nuevoObjeto.getPathIcon());
-            temp.setUrl(nuevoObjeto.getUrl());
-
-            return new ResponseEntity(temp, HttpStatus.OK);
+            SocialNetwork nuevoObjeto = objetoServ.crearSocial(social);
+            
+            System.out.println(nuevoObjeto.toString());
+//            DTOSocialNetwork temp = new DTOSocialNetwork();
+//            
+//            temp.setId(nuevoObjeto.getId());
+//            temp.setName(nuevoObjeto.getName());
+//            temp.setOrderdeploy(nuevoObjeto.getOrderdeploy());
+//            temp.setIconname(nuevoObjeto.getIconname());
+//            temp.setUrl(nuevoObjeto.getUrl());
+//
+//            return new ResponseEntity(temp, HttpStatus.OK);
+              return new ResponseEntity(nuevoObjeto, HttpStatus.OK);
 //        } catch (DataAccessException e) {
 //            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
         } catch (Exception e) {
+            System.out.println(e);
             return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

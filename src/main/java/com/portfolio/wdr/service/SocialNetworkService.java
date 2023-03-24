@@ -28,13 +28,13 @@ public class SocialNetworkService implements ISocialnetworkService {
     public SocialNetwork crearSocial(SocialNetwork social) {
         Long tmp_id = social.getPerson().getId();
         Person pers = persServ.buscarPersona(tmp_id);
-        
+
         if (pers != null) {
             social.setPerson(pers);
-        
         }
-        
+
         return socialRepo.save(social);
+
     }
 
     @Override
@@ -66,7 +66,7 @@ public class SocialNetworkService implements ISocialnetworkService {
 
             tempDTO.setId(elemento.getId());
             tempDTO.setName(elemento.getName());
-            tempDTO.setPathIcon(elemento.getPathIcon());
+            tempDTO.setIconname(elemento.getIconname());
             tempDTO.setUrl(elemento.getUrl());
             tempDTO.setOrderdeploy(elemento.getOrderdeploy());
             
