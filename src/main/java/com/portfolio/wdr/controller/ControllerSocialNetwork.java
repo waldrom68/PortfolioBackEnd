@@ -30,13 +30,21 @@ public class ControllerSocialNetwork {
 
     //    Creamos la dependencia con el servicio
     @Autowired
-    private ISocialnetworkService socialServ;
+    private ISocialnetworkService objetoServ;
 
     @PostMapping("/edit")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> crearSocial(@RequestBody SocialNetwork social) {
+    public ResponseEntity<?> editarObjetoSocial(@RequestBody SocialNetwork social) {
+        if (StringUtils.isBlank(social.getName())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (objetoServ.findByNameAndPersonId(social.getName(), social.getPerson().getId()) != null
+                && !objetoServ.existeSoftInPerson(social.getName(), social.getPerson().getId(), social)) {
+
+            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+        }
         try {
-            socialServ.crearSocial(social);
+            objetoServ.crearSocial(social);
             return new ResponseEntity(new Mensaje("Informacion guardada correctamente"), HttpStatus.OK);
 //        } catch (DataAccessException e) {
 //            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
@@ -47,16 +55,16 @@ public class ControllerSocialNetwork {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/new")
-    public ResponseEntity<?> crearObjetoInter(@RequestBody SocialNetwork data) {
+    public ResponseEntity<?> crearObjetoSocial(@RequestBody SocialNetwork data) {
         if (StringUtils.isBlank(data.getName())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (socialServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null) {
+        if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null) {
 
             return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
         try {
-            SocialNetwork nuevoObjeto = socialServ.crearSocial(data);
+            SocialNetwork nuevoObjeto = objetoServ.crearSocial(data);
             DTOSocialNetwork temp = new DTOSocialNetwork();
             temp.setId(nuevoObjeto.getId());
             temp.setName(nuevoObjeto.getName());
@@ -74,9 +82,9 @@ public class ControllerSocialNetwork {
 
     @DeleteMapping("/del/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> borrarSocial(@PathVariable Long id) {
+    public ResponseEntity<?> borrarObjetoSocial(@PathVariable Long id) {
         try {
-            socialServ.borrarSocial(id);
+            objetoServ.borrarSocial(id);
             return new ResponseEntity(new Mensaje("Red Social eliminada"), HttpStatus.OK);
 
         } catch (Exception e) {
@@ -88,7 +96,24 @@ public class ControllerSocialNetwork {
     @PreAuthorize("hasRole('ADMIN')")
     public List<DTOSocialNetwork> verByPerson(@PathVariable Long id) {
 
-        return socialServ.verByPersonId(id);
+        return objetoServ.verByPersonId(id);
+
+    }
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/reorder")
+    public ResponseEntity<?> reorderEntity(@RequestBody List<SocialNetwork> data) {
+
+        try {
+            for (SocialNetwork elemento : data) {
+                this.editarObjetoSocial(elemento);
+                System.out.println("Hice el proceso para" + elemento);
+            }
+            return new ResponseEntity(new Mensaje("Orden de las redes actualizado"), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
     }
 

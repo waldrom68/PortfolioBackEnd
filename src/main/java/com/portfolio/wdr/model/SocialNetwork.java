@@ -58,7 +58,8 @@ public class SocialNetwork {
     public SocialNetwork() {
     }
 
-    public SocialNetwork(String name, String pathIcon, String url, Person person) {
+    public SocialNetwork(Long id, String name, String pathIcon, String url, Person person) {
+        this.id = id;
         this.name = name;
         this.pathIcon = pathIcon;
         this.url = url;
