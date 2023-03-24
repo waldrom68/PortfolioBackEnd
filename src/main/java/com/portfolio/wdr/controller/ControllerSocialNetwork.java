@@ -32,8 +32,8 @@ public class ControllerSocialNetwork {
     @Autowired
     private ISocialnetworkService objetoServ;
 
-    @PostMapping("/edit")
     @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/edit")
     public ResponseEntity<?> editarObjetoSocial(@RequestBody SocialNetwork social) {
         if (StringUtils.isBlank(social.getName())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -66,17 +66,17 @@ public class ControllerSocialNetwork {
         try {
             SocialNetwork nuevoObjeto = objetoServ.crearSocial(social);
             
+            DTOSocialNetwork temp = new DTOSocialNetwork();
+            
+            temp.setId(nuevoObjeto.getId());
+            temp.setName(nuevoObjeto.getName());
+            temp.setOrderdeploy(nuevoObjeto.getOrderdeploy());
+            temp.setIconname(nuevoObjeto.getIconname());
+            temp.setUrl(nuevoObjeto.getUrl());
             System.out.println(nuevoObjeto.toString());
-//            DTOSocialNetwork temp = new DTOSocialNetwork();
-//            
-//            temp.setId(nuevoObjeto.getId());
-//            temp.setName(nuevoObjeto.getName());
-//            temp.setOrderdeploy(nuevoObjeto.getOrderdeploy());
-//            temp.setIconname(nuevoObjeto.getIconname());
-//            temp.setUrl(nuevoObjeto.getUrl());
-//
-//            return new ResponseEntity(temp, HttpStatus.OK);
-              return new ResponseEntity(nuevoObjeto, HttpStatus.OK);
+
+            return new ResponseEntity(temp, HttpStatus.OK);
+//              return new ResponseEntity(nuevoObjeto, HttpStatus.OK);
 //        } catch (DataAccessException e) {
 //            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
         } catch (Exception e) {
@@ -85,8 +85,8 @@ public class ControllerSocialNetwork {
         }
     }
 
-    @DeleteMapping("/del/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/del/{id}")
     public ResponseEntity<?> borrarObjetoSocial(@PathVariable Long id) {
         try {
             objetoServ.borrarSocial(id);
@@ -97,8 +97,8 @@ public class ControllerSocialNetwork {
         }
     }
 
-    @GetMapping("/list/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/list/{id}")
     public List<DTOSocialNetwork> verByPerson(@PathVariable Long id) {
 
         return objetoServ.verByPersonId(id);
