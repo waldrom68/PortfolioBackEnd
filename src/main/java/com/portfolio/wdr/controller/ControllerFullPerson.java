@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = {"/**"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
 public class ControllerFullPerson {
 
     //    Creamos la dependencia con el servicio
@@ -25,11 +25,15 @@ public class ControllerFullPerson {
 //    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/fullperson/view/{id}")
     public ResponseEntity<?> mostrarPersona(@PathVariable Long id) {
-//        if (persoServ.existsPersonById(id)) {
+//if (persoServ.existsPersonById(id)) {
+        try {
             return new ResponseEntity(persoServ.verPersona(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        
+
 //        return new ResponseEntity(new Mensaje("No existe lo solicitado, verifique el ID"), HttpStatus.BAD_REQUEST);
 //
 //    }
+    }
 }

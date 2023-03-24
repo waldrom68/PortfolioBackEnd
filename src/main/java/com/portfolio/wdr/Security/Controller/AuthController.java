@@ -57,7 +57,7 @@ public class AuthController {
         return "<center><h1>El servicio API está funcionando,<br>pero su acceso tiene restricciones</h1></center>";
     }
     
-    @CrossOrigin(origins = {"/**"})
+    @CrossOrigin(origins = {"https://portfolio-frontend-wdr.web.app", "http://localhost:4200"})
     @PostMapping("/auth/new")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> nuevo(@Validated @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
@@ -91,7 +91,7 @@ public class AuthController {
         
     }
     
-    @CrossOrigin(origins = {"/**"})
+    @CrossOrigin(origins = {"https://portfolio-frontend-wdr.web.app", "http://localhost:4200"})
     @PostMapping("/auth/login")
     public ResponseEntity<JwtDTO> login(@Validated @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         
