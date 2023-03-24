@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 // Recibe las peticiones y delega el negocio (es el pivot de la aplicacion)
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
+@CrossOrigin(origins = {"http://localhost:4200/hardskill", "https://portfolio-frontend-wdr.web.app/hardskill"})
 @RequestMapping("/hardskill")
 public class ControllerHardskill {
 
@@ -59,7 +59,7 @@ public class ControllerHardskill {
         if (StringUtils.isBlank(data.getName())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null) {
+        if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId() ) != null) {
 
             return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
@@ -75,7 +75,7 @@ public class ControllerHardskill {
 //        } catch (DataAccessException e) {
 //            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
         } catch (Exception e) {
-            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada" + e.toString()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
