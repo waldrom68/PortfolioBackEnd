@@ -34,11 +34,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
 //@RequestMapping("/auth")
-//@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
+//@CrossOrigin(origins = { "http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
 // @CrossOrigin(origins = "http://localhost:4200")
-
 
 public class AuthController {
 
@@ -48,18 +46,18 @@ public class AuthController {
     @Autowired RolService rolService;
     @Autowired JwtProvider jwtProvider;
 
-//    
-//    @RequestMapping("/")
-//    public String index() {
-//        return "<center><h1>El servicio API está funcionando,<br>pero su acceso tiene restricciones</h1></center>";
-//    }
-//    
-//    @GetMapping("/**")
-//    public String indexLogin() {
-//        return "<center><h1>El servicio API está funcionando,<br>pero su acceso tiene restricciones</h1></center>";
-//    }
     
-//    @CrossOrigin(origins = {"/**"})
+    @RequestMapping("/")
+    public String index() {
+        return "<center><h1>El servicio API está funcionando,<br>pero su acceso tiene restricciones</h1></center>";
+    }
+    
+    @GetMapping("/**")
+    public String indexLogin() {
+        return "<center><h1>El servicio API está funcionando,<br>pero su acceso tiene restricciones</h1></center>";
+    }
+    
+//    @CrossOrigin(origins = {"https://portfolio-frontend-wdr.web.app", "http://localhost:4200"})
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/auth/new")
     public ResponseEntity<?> nuevo(@Validated @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {

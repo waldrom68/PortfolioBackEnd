@@ -73,7 +73,7 @@ public class ControllerSocialNetwork {
             temp.setOrderdeploy(nuevoObjeto.getOrderdeploy());
             temp.setIconname(nuevoObjeto.getIconname());
             temp.setUrl(nuevoObjeto.getUrl());
-            System.out.println(nuevoObjeto.toString());
+//            System.out.println(nuevoObjeto.toString());
 
             return new ResponseEntity(temp, HttpStatus.OK);
 //              return new ResponseEntity(nuevoObjeto, HttpStatus.OK);
