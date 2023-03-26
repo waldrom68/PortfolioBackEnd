@@ -38,7 +38,7 @@ public class Interest {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(nullable=false, length=45)
+    @Column(nullable=false, length=75)
     private String name;
     private int orderdeploy = 0;
 
