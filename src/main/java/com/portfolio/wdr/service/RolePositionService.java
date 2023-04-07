@@ -25,7 +25,7 @@ public class RolePositionService implements IRolePositionService {
         Person pers = persServ.buscarPersona(tmp_id);
         if (pers != null ) {
             position.setPerson(pers);
-            positionRepo.save(position);
+
         } 
         return positionRepo.save(position);
     }
