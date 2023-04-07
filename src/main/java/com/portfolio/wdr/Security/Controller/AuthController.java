@@ -48,14 +48,17 @@ public class AuthController {
 
     
     @RequestMapping("/")
-    public String index() {
-        return "<center><h1>El servicio API está funcionando,<br>pero su acceso tiene restricciones</h1></center>";
+    public ResponseEntity<?> index() {
+        
+        return new ResponseEntity(new Mensaje("Acceso restringido"), HttpStatus.FORBIDDEN );
     }
     
-    @GetMapping("/**")
-    public String indexLogin() {
-        return "<center><h1>El servicio API está funcionando,<br>pero su acceso tiene restricciones</h1></center>";
+    @RequestMapping("/**")
+    public ResponseEntity<?> indexLogin() {
+        
+        return new ResponseEntity(new Mensaje("Acceso restringido"), HttpStatus.FORBIDDEN );
     }
+    
     
     @CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
     @PreAuthorize("hasRole('ADMIN')")
