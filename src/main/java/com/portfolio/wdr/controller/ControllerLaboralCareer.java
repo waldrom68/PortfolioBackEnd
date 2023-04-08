@@ -62,7 +62,8 @@ public class ControllerLaboralCareer {
         if (StringUtils.isBlank(data.getResume())) {
             return new ResponseEntity(new Mensaje("El resumen es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (objetoServ.findByResumeAndPersonId(data.getResume(), data.getPerson().getId()) != null) {
+        if (objetoServ.findByResumeAndPersonId(data.getResume(), data.getPerson().getId()) != null 
+                && !objetoServ.existeInPerson(data.getResume(), data.getPerson().getId(), data)) {
 
             return new ResponseEntity(new Mensaje("El resumen ya existe"), HttpStatus.BAD_REQUEST);
         }

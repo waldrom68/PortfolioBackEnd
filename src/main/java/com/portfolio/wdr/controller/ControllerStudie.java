@@ -36,12 +36,12 @@ public class ControllerStudie {
     public ResponseEntity<?> editarStudie(@RequestBody Studie data) {
         
         if (StringUtils.isBlank(data.getName())) {
-            return new ResponseEntity(new Mensaje("El resumen es obligatorio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null
                 && !objetoServ.existeInPerson(data.getName(), data.getPerson().getId(), data)) {
 
-            return new ResponseEntity(new Mensaje("El resumen ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El estudio ya existe"), HttpStatus.BAD_REQUEST);
         }
         
         try {
@@ -59,11 +59,11 @@ public class ControllerStudie {
     public ResponseEntity<?> crearDegree(@RequestBody Studie data) {
         
         if (StringUtils.isBlank(data.getName())) {
-            return new ResponseEntity(new Mensaje("El resumen es obligatorio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (objetoServ.findByNameAndPersonId(data.getName(), data.getPerson().getId()) != null) {
 
-            return new ResponseEntity(new Mensaje("El resumen ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El estudio ya existe"), HttpStatus.BAD_REQUEST);
         }
 
         
