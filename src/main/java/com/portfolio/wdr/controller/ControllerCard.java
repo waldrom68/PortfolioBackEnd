@@ -26,7 +26,7 @@ public class ControllerCard {
     @Autowired
     private ICardService cardServ;
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/list/all")
     public List<Card> verCards() {
         return cardServ.verCards();

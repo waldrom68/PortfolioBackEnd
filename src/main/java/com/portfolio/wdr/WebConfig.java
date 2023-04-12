@@ -25,7 +25,7 @@ public class WebConfig implements WebMvcConfigurer {
             .allowedOrigins("*")
             .allowedHeaders("*");
 
-        System.out.println("###### WebConfig class ######");
+        System.out.println("###### Hola Gil, estoy en WebConfig class ######");
         Date date = new Date();
         System.out.println(date);
     }
