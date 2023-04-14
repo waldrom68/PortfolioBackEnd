@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 // Recibe las peticiones y delega el negocio (es el pivot de la aplicacion)
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
+//@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
 @RequestMapping("/hardskill")
 public class ControllerHardskill {
 
