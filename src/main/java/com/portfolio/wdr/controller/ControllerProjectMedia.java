@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 // Recibe las peticiones y delega el negocio (es el pivot de la aplicacion)
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
+//@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
 @RequestMapping("/projectmedia")
 public class ControllerProjectMedia {
 
@@ -28,8 +28,8 @@ public class ControllerProjectMedia {
     @Autowired
     private IProjectMediaService persoServ;
 
-    @PostMapping("/new/projectmedia")
     @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/new/projectmedia")
     public ResponseEntity<?> crearProjectMedia(@RequestBody ProjectMedia pers) {
         try {
             persoServ.crearProjectMedia(pers);
@@ -41,8 +41,8 @@ public class ControllerProjectMedia {
         }
     }
 
-    @DeleteMapping("/del/projectmedia")
     @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/del/projectmedia")
     public ResponseEntity<?> borrarProjectMedia(@PathVariable Long id) {
         try {
             persoServ.borrarProjectMedia(id);
@@ -53,8 +53,8 @@ public class ControllerProjectMedia {
         }
     }
 
-    @GetMapping("/list/projectmedia")
     @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/list/projectmedia")
     public List<ProjectMedia> verProjectMedia() {
 
         return persoServ.verProjectMedia();

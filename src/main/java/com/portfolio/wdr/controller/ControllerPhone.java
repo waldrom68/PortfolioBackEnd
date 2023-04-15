@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
+//@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
 @RequestMapping("/phone")
 public class ControllerPhone {
 
@@ -28,8 +28,8 @@ public class ControllerPhone {
     @Autowired
     private IPhoneService phoneServ;
 
-    @PostMapping("/edit")
     @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/edit")
     public ResponseEntity<?> crearPhone(@RequestBody Phone phone) {
         try {
             phoneServ.crearPhone(phone);
@@ -42,8 +42,8 @@ public class ControllerPhone {
 
     }
 
-    @PostMapping("/del/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/del/{id}")
     public ResponseEntity<?> borrarPhone(@PathVariable Long id) {
         try {
             phoneServ.borrarPhone(id);
@@ -55,8 +55,8 @@ public class ControllerPhone {
 
     }
 
-    @GetMapping("/list/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/list/{id}")
     public List<DTOPhone> verByPerson(@PathVariable Long id) {
 
         return phoneServ.verByPersonId(id);

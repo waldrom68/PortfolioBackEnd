@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 // Recibe las peticiones y delega el negocio (es el pivot de la aplicacion)
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
+//@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
 @RequestMapping("/organization")
 public class ControllerOrganization {
 
@@ -31,8 +31,8 @@ public class ControllerOrganization {
     @Autowired
     private IOrganizationService objetoServ;
 
-    @PostMapping("/edit")
     @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/edit")
     public ResponseEntity<?> editarorganization(@RequestBody Organization data) {
         
         if (StringUtils.isBlank(data.getName())) {
@@ -87,8 +87,8 @@ public class ControllerOrganization {
 
     }
 
-    @DeleteMapping("/del/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/del/{id}")
     public ResponseEntity<?> borrarOrganization(@PathVariable Long id) {
 
         try {
@@ -101,8 +101,8 @@ public class ControllerOrganization {
 
     }
 
-    @GetMapping("/list/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/list/{id}")
     public List<DTOOrganization> verByPersonId(@PathVariable Long id) {
 
         return objetoServ.verByPersonId(id);

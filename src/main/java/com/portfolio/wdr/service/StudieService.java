@@ -56,7 +56,12 @@ public class StudieService implements IStudieService {
         return studieRepo.findById(id).orElse(null);
     }
     
-
+//    PENDIENTE INVESTIGAR https://www.bezkoder.com/spring-data-sort-multiple-columns/
+    
+    @Override
+    public List<Studie> verStudie() {
+        return studieRepo.findAll(Sort.by("orderdeploy").ascending().and(Sort.by("startDate").descending()));
+    }
 
     @Override
     public List<DTOStudie> verByPersonId(Long id) {

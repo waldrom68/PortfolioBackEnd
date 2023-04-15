@@ -56,7 +56,7 @@ public class SoftskillService implements ISoftskillService {
     @Override
     public List<Softskill> verSoft() {
 
-        return softRepo.findAll(Sort.by("orderdeploy").ascending());
+        return softRepo.findAll(Sort.by("orderdeploy").ascending().and(Sort.by("name")));
     }
 
     @Override

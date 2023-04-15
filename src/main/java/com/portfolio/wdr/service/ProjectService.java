@@ -48,7 +48,7 @@ public class ProjectService implements IProjectService {
 
     @Override
     public List<Project> verProject() {
-        return projRepo.findAll(Sort.by("orderdeploy").descending());
+        return projRepo.findAll(Sort.by("orderdeploy").ascending().and(Sort.by("since").descending()));
     }
 
     @Override

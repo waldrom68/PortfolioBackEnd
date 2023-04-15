@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Sort;
 
 @Service
 public class OrganizationService implements IOrganizationService {
@@ -43,7 +44,7 @@ public class OrganizationService implements IOrganizationService {
     
     @Override
     public List<Organization> verOrganizacion() {
-        return orgaRepo.findAll();
+        return orgaRepo.findAll(Sort.by("name"));
     }
 
     @Override

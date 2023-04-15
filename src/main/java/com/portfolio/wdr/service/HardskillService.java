@@ -47,7 +47,7 @@ public class HardskillService implements IHardskillService {
 
     @Override
     public List<Hardskill> verHard() {
-        return hardRepo.findAll(Sort.by("orderdeploy").ascending());
+        return hardRepo.findAll(Sort.by("orderdeploy").ascending().and(Sort.by("name")));
     }
 
     @Override

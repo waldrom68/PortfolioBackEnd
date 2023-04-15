@@ -55,7 +55,7 @@ public class LaboralCareerService implements ILaboralCareerService {
     
     @Override
     public List<LaboralCareer> verLaboralCareer() {
-        return laboralRepo.findAll(Sort.by("orderdeploy").ascending());
+        return laboralRepo.findAll(Sort.by("orderdeploy").ascending().and(Sort.by("startDate").descending()));
     }
 
     @Override

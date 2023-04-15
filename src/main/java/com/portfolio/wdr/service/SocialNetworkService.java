@@ -49,7 +49,7 @@ public class SocialNetworkService implements ISocialnetworkService {
         
     @Override
     public List<SocialNetwork> verSocial() {
-        return socialRepo.findAll(Sort.by("orderdeploy").ascending());
+        return socialRepo.findAll(Sort.by("orderdeploy").ascending().and(Sort.by("name")));
     }
 
     @Override

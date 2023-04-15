@@ -17,6 +17,7 @@ public interface IStudieService {
     public boolean existeInPerson(String nombre, Long id, Studie objeto);
     
 //    public List<Studie> verStudie();
+    public List<Studie> verStudie();
     public List<DTOStudie> verByPersonId(Long id);
     
 }

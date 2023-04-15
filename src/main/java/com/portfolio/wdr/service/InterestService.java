@@ -49,7 +49,7 @@ public class InterestService implements IInterestService {
 
     @Override
     public List<Interest> verIntereses() {
-        return interestRepo.findAll(Sort.by("orderdeploy").ascending());
+        return interestRepo.findAll(Sort.by("orderdeploy").ascending().and(Sort.by("name")));
     }
 
     @Override

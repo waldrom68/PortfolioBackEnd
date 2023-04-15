@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -42,7 +43,7 @@ public class RolePositionService implements IRolePositionService {
     
     @Override
     public List<RolePosition> verRolePosition() {
-        return positionRepo.findAll();
+        return positionRepo.findAll(Sort.by("name").ascending());
     }
 
     @Override

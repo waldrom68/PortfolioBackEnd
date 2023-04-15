@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 // Recibe las peticiones y delega el negocio (es el pivot de la aplicacion)
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
+//@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-frontend-wdr.web.app"})
 @RequestMapping("/roleposition")
 public class ControllerRolePosition {
 
@@ -31,8 +31,8 @@ public class ControllerRolePosition {
     @Autowired
     private IRolePositionService objetoServ;
 
-    @PostMapping("/edit")
     @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/edit")
     public ResponseEntity<?> editRolePosition(@RequestBody RolePosition data) {
         
         if (StringUtils.isBlank(data.getName())) {
@@ -84,8 +84,8 @@ public class ControllerRolePosition {
 
     }
 
-    @DeleteMapping("/del/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/del/{id}")
     public ResponseEntity<?> borrarRoleposition(@PathVariable Long id) {
 //PENDIENTE VERIFICAR EXISTENCIA EN LA RELACIONES ANTES DE INTENTAR BORRAR
         try {
@@ -97,8 +97,8 @@ public class ControllerRolePosition {
         }
     }
 
-    @GetMapping("/list/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/list/{id}")
     public List<DTORolePosition> verByPersonId(@PathVariable Long id) {
 
         return objetoServ.verByPersonId(id);
