@@ -20,16 +20,11 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
+            .allowedOrigins("https://portfolio-frontend-wdr.web.app", "http://localhost:4200" )
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-            .allowedOrigins("https://portfolio-frontend-wdr.web.app")
-            .allowedHeaders("*");
-
-        registry.addMapping("/**")
-            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-            .allowedOrigins("http://localhost:4500")
             .allowedHeaders("*");
         
-        System.out.println("###### Hola Gil, estoy en WebConfig class ######");
+        System.out.println("###### Hola Gil, estoy en WebConfig class, con la prueba 7201 CORS ######");
         Date date = new Date();
         System.out.println(date);
     }
