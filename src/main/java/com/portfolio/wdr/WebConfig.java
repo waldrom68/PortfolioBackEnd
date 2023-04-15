@@ -19,14 +19,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("https://portfolio-frontend-wdr.web.app")
+        registry.addMapping("/**")
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-            .allowedOrigins("*")
+            .allowedOrigins("https://portfolio-frontend-wdr.web.app")
             .allowedHeaders("*");
 
-        registry.addMapping("http://localhost:4200")
+        registry.addMapping("/**")
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-            .allowedOrigins("*")
+            .allowedOrigins("http://localhost:4500")
             .allowedHeaders("*");
         
         System.out.println("###### Hola Gil, estoy en WebConfig class ######");
