@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
 * Clase que habilita CORS
 * @author YO Walter Romero
+* https://howtodoinjava.com/spring-boot2/spring-cors-configuration/
 */
 @EnableWebMvc
 @Configuration
