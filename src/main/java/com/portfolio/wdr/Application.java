@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
 	public static void main(String[] args) {
-                System.out.println("###### Application (Version 1.0.0) ######");
+                System.out.println("###### Application (Version 2.0.0) ######");
                 Date date = new Date();
                 System.out.println(date);
                 
