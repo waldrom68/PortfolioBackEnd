@@ -102,8 +102,25 @@ public class ControllerProject {
 
     }
 
-}
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/reorder")
+    public ResponseEntity<?> reorderEntity(@RequestBody List<Project> data) {
 
+        try {
+            for (Project elemento : data) {
+                this.editarObjetoProj(elemento);
+                System.out.println("Hice el proceso para" + elemento);
+            }
+            return new ResponseEntity(new Mensaje("Orden de los proyectos actualizado"), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+    
+    
+}
 //    @GetMapping ("/list/project/all")
 //    public List<Project> verProject() {
 //    

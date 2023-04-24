@@ -8,6 +8,7 @@ import com.portfolio.wdr.service.ILaboralCareerService;
 import io.micrometer.common.util.StringUtils;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -47,8 +48,8 @@ public class ControllerLaboralCareer {
         try {
             objetoServ.crearLaboralCareer(data);
             return new ResponseEntity(new Mensaje("Informacion guardada correctamente"), HttpStatus.OK);
-//        } catch (DataAccessException e) {
-//            return new ResponseEntity(new Mensaje("No pudo guardarse el Degree, problema con los datos"), HttpStatus.CONFLICT);
+        } catch (DataAccessException e) {
+            return new ResponseEntity(new Mensaje("No pudo guardarse el trayectoria, problema con los datos"), HttpStatus.CONFLICT);
         } catch (Exception e) {
             return new ResponseEntity(new Mensaje("No pudo guardarse la informacion suministrada"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
